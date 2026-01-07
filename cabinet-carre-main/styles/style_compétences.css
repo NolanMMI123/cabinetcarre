@@ -1,0 +1,361 @@
+/* =========================
+   BASE + VARIABLES
+   ========================= */
+:root{
+  --text: #273643;
+  --circle: #6b8897;
+  --circle-text: #122330;
+  --b: clamp(180px, 22vw, 260px); /* diamètre d’une bulle */
+
+  /* Intro SVG */
+  --blue:#0E2A47;
+  --stroke:#ffffff;
+  --stroke-w:12;
+  --dur:4000ms;
+  --easing: cubic-bezier(.22,.61,.36,1);
+  --gap:160ms; /* décalage entre lettres */
+}
+
+*{box-sizing:border-box}
+
+/* …et si tu veux garder l’ancien rendu du footer : */
+footer, footer * { box-sizing: content-box; }
+
+html,body{margin:0;background:#fff;color:var(--text);height:100%}
+body{font-family:"EB Garamond", serif; line-height:1.4;}
+
+/* =========================
+   INTRO SVG PLEIN ÉCRAN
+   ========================= */
+.page-competences #intro{
+  position:fixed;
+  inset:0;
+  background: #fff;
+  display:grid;
+  place-items:center;
+  z-index:2;
+  opacity:1;
+  transition: opacity 0.8s ease;
+}
+
+.page-competences #intro svg{
+  width:100vw;
+  height:100vh;
+}
+
+/* Lettres (mêmes principes que ton ancien code) */
+.letter{
+  fill:var(--blue);
+  font-family:"Playfair Display", serif;
+  font-weight:700;
+  stroke:var(--stroke);
+  stroke-width:var(--stroke-w);
+  paint-order:stroke fill;
+}
+
+/* 1) La référence de transform = viewBox du SVG */
+.page-competences .glyph{
+  transform:
+    translate(var(--ox), var(--oy))
+    rotate(var(--rot))
+    scale(var(--scale));
+  transform-box: view-box;          /* ← AU LIEU de fill-box */
+  transform-origin: center;
+  opacity:1;
+  animation: letter-out var(--dur) var(--easing) var(--delay) forwards;
+  will-change: transform, opacity;
+}
+
+/* 2) Positions: mets des pourcentages (%) — pas de vw/vh */
+.C{
+  --ox: 39.167%; --oy: 48.529%; --rot: 0deg; --scale: 1.00;
+  --ox2: -28%;  --oy2: 25%; --rot2: 0deg; --scale2: 0.5;
+  --delay: calc(var(--gap)*0);
+}
+.F{
+  --ox: 50.000%; --oy: 44.118%; --rot: 0deg; --scale: 1.00;
+  --ox2: -28%; --oy2: 62%; --rot2: 0deg; --scale2: 0.5;
+  --delay: calc(var(--gap)*1);
+}
+.J{
+  --ox: 45.000%; --oy: 58.824%; --rot: 0deg; --scale: 1.00;
+  --ox2: 80%; --oy2: 62%; --rot2: 0deg; --scale2: 0.5;
+  --delay: calc(var(--gap)*2);
+}
+.S{
+  --ox: 47.500%; --oy: 63.235%; --rot: 0deg; --scale: 1.00;
+  --ox2: 80%; --oy2: 25%; --rot2: 0deg; --scale2: 0.5;
+  --delay: calc(var(--gap)*3);
+}
+.A{
+  --ox: 67.500%; --oy: 47.059%; --rot: 0deg; --scale: 1.00;
+  --ox2: 23%; --oy2: 75%; --rot2: 0deg; --scale2: 0.50;
+  --delay: calc(var(--gap)*4);
+}
+
+
+@keyframes letter-out{
+  from{
+    opacity:1;
+    transform:
+      translate(var(--ox), var(--oy))
+      rotate(var(--rot))
+      scale(var(--scale));
+  }
+  to{
+    opacity:0;
+    transform:
+      translate(
+        calc(var(--ox2, var(--ox))),
+        calc(var(--oy2, var(--oy) - 4%))
+      )
+      rotate( calc(var(--rot2, var(--rot))) )
+      scale(  calc(var(--scale2, var(--scale)*0.98)) );
+  }
+}
+
+/* Réduction mouvement */
+/* @media (prefers-reduced-motion: reduce){
+.page-competences .glyph{ animation-duration: 1ms !important; animation-delay:0ms !important; }
+.page-competences #intro{ transition:none; }
+.page-competences .site{ transition:none; }
+} */
+
+/* =========================
+   CONTENU DU SITE (TON CODE)
+   — caché au début, fade-in après l’intro
+   ========================= */
+.page-competences .site{
+  opacity:0;
+  transition: opacity 0.8s ease; /* léger délai après disparition de l’intro */
+}
+
+/* État final déclenché par JS quand toutes les lettres ont fini */
+.page-competences.show-site .site{opacity:1;}
+.page-competences.show-site #intro{opacity:0; pointer-events:none; }
+
+/* =========================
+   TON CSS (adapté au contexte fusionné)
+   ========================= */
+body{ padding-top: 55px;}
+
+/* Intro texte + wrapper */
+.wrap{ max-width:1400px; margin-inline:auto; padding:clamp(20px, 4vw, 50px); }
+.particuliers-page .wrap { max-width: 1600px; }
+.competences-title{ margin:0; text-align:center; font-family:"Gabriola", serif; font-size:clamp(32px,4.6vw,56px); font-weight:600; color:#112983; }
+.intro{ text-align:center; font-size:clamp(18px, 2vw, 22px); margin:0 0 clamp(28px,5vw,48px); }
+.intro .sub{ color:var(--text); display:block; margin-top:.4rem; font-size:clamp(18px, 2vw, 22px); }
+
+/* Bloc central */
+.center{
+  position:absolute;
+  left:50%;
+  top: calc(42vh + 120px);
+  transform:translate(-50%, -50%);
+  text-align:center;
+  padding-inline:clamp(40px,10vw,160px);
+  z-index:10;
+  pointer-events: none;
+}
+.title{
+  font-family:"Playfair Display", serif;
+  font-weight:600;
+  font-size:clamp(26px, 2.9vw, 36px);
+  margin:0 0 .6rem;
+  white-space:nowrap;
+}
+.subtitle{
+  font-size:clamp(17px,1.5vw,18px);
+  margin:0 0 clamp(14px,2vw,20px);
+  white-space:nowrap;
+}
+.logo{
+  width:min(170px, 26vw);
+  height:auto;
+  display:block;
+  margin-inline:auto;
+}
+
+/* Bulles */
+.bubble,
+.bubble___link{
+  position:absolute;
+  width: clamp(130px, 16vw, 190px);
+  height: clamp(130px, 16vw, 190px);
+  border-radius:50%;
+  background:#6b8897;
+  color:#122330;
+  font-family:"Playfair Display", serif;
+  overflow:visible;
+  transition: background .3s ease;
+}
+
+
+.bubble__front, .bubble__panel{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:10%;
+  transition:opacity .25s ease;
+}
+.bubble__front b{ font-size:clamp(24px,2.6vw,30px); font-weight:600; line-height:1.2; }
+.bubble__link b{ font-size:clamp(20px, 2.4vw, 28px); font-weight:600; line-height:1.2; }
+.bubble__front small{ display:block; margin-top:.4rem; font-size:clamp(18px,2vw,20px); opacity:.9; font-family:"EB Garamond", serif; }
+.bubble__link small{ display:block; margin-top:.4rem; font-size:clamp(18px,2vw,20px); opacity:.9; font-family:"EB Garamond", serif; }
+
+/* lien cliquable dans les bulles */
+.bubble__link {
+  position: absolute;
+  inset: 0;                  /* couvre toute la bulle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  color: inherit;            /* garde la même couleur de texte */
+  text-decoration: none;
+  z-index: 2;
+}
+
+/* optionnel : effet au survol */
+.bubble__link:hover {
+  background: rgba(255,255,255,0.05); /* léger feedback visuel */
+  border-radius: 50%;
+}
+
+
+.bubble__panel{
+  background:transparent; border-radius:0;
+  color:#273643; opacity:0;
+  font-family:"EB Garamond", serif;
+  font-size:clamp(12px,1.2vw,16px);
+  line-height:1.4;
+}
+.bubble__panel ul{ list-style:none; margin:0; padding:0; }
+.bubble__panel li{ white-space:nowrap; }
+.bubble__panel li + li{ margin-top:.6rem; position:relative; padding-top:.6rem; }
+.bubble__panel li + li::before{
+  content:"•"; position:absolute; top:-.2rem; left:50%;
+  transform:translateX(-50%); font-size:1rem;
+}
+
+/* Effet hover */
+.bubble:hover,
+.bubble:focus-within{ background:transparent; }
+.bubble:hover .bubble__front,
+.bubble:focus-within .bubble__front{ opacity:0; }
+.bubble:hover .bubble__panel,
+.bubble:focus-within .bubble__panel{ opacity:1; }
+
+/* Placement */
+.b-top-left{ left: calc(50vw - 24vw ); top:  calc(50vh - 22vh + 130px); transform: translate(-50%, -50%); }
+.b-top-right{ left: calc(50vw + 24vw); top:  calc(50vh - 22vh + 130px); transform: translate(-50%, -50%); }
+.b-bottom-left{ left: calc(50vw - 24vw); top:  calc(50vh + 7vh + 130px); transform: translate(-50%, -50%); }
+.b-bottom-right{ left: calc(50vw + 24vw); top:  calc(50vh + 7vh + 130px); transform: translate(-50%, -50%); }
+.b-bottom-mid{ left: 50vw; top:  calc(50vh + 22vh + 130px); transform: translate(-50%, -50%); }
+
+/* Footer spacing */
+body.page-competences .footer,
+body.page-complementaires .footer { margin-top: 62vh; }
+
+
+/* Menu fixe */
+/* ===== MENU FIXE À DROITE ===== */
+.menu-fixed {
+  position: fixed;
+  top: 20%;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 100;
+  font-family: "Playfair Display", serif;
+  width: 260px;                /* borne pour éviter l’étalement */
+}
+
+/* Liens principaux (enfants directs du conteneur) */
+.menu-fixed > a {
+  background: #fff;
+  color: #0e2a3a;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 10px 0 0 10px;
+  transition: background 0.3s, padding 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  width: max-content;
+  width: 220px;      /* largeur uniforme */
+  max-width: 220px;  /* empêche les variations */
+}
+.menu-fixed > a:hover { background: #1f4f6e; color: #e6f0fb; }
+.menu-fixed > a.active { background: #0e2a3a; color: #e6f0fb; }
+
+/* Sous-menu (liens secondaires) */
+.menu-fixed .submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+  border-right: 2px solid #0e2a3a22; /* petite barre discrète */
+}
+.menu-fixed .submenu a {
+  background: #f7f9fb;
+  color: #0e2a3a;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px 0 0 8px;
+  transition: background 0.3s, padding 0.3s;
+  width: max-content;
+  width: 220px;      /* largeur uniforme */
+  max-width: 220px;  /* empêche les variations */
+}
+.menu-fixed .submenu a:hover { background: #e6f0fb; }
+.menu-fixed .submenu a.active { background: #1e5a7c; color: #e6f0fb }
+
+/* Phrase sous le menu (texte classique) */
+.menu-note {
+  margin-top: 8px;
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+  color: #0e2a3a;
+  text-align: right;
+}
+.menu-note a {
+  text-decoration: underline;   /* soulignement simple */
+  color: inherit;               /* même couleur que le texte */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive: on masque le menu sur mobile si besoin */
+@media (max-width: 900px) {
+  .menu-fixed { display: none; }
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .center{ position:static; transform:none; margin-bottom:20px; }
+  .bubble{ position:static; width:clamp(150px, 45vw, 220px); height:clamp(150px, 45vw, 220px); }
+  .constellation{ display:flex; flex-direction:column; gap:20px; align-items:center; }
+  .bubble__panel{ opacity:0; }
+  .bubble__front{ opacity:1; }
+}
+
+/* Repositionnement complémentaire */
+#complementaires .b-top-left     { left: calc(50% - 24vw); }
+#complementaires .b-top-right    { left: calc(50% + 24vw); }
+#complementaires .b-bottom-left  { left: calc(50% - 24vw); }
+#complementaires .b-bottom-right { left: calc(50% + 24vw); }
+#complementaires .b-bottom-mid   { left: 50%; }
+
+#traditionnelles {
+  scroll-margin-top: 148px; /* ajuste la hauteur ici */
+}
+#complementaires {
+  scroll-margin-top: 148px;
+}

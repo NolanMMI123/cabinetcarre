@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nos compétences - Cabinet Carré</title>
+  <link rel="stylesheet" href="./styles/style2.css">
+  <link rel="stylesheet" href="./styles/style_compétences.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-competences">
+  <!-- =========================
+       INTRO SVG FULLSCREEN
+       ========================= -->
+  <div id="intro" aria-label="Intro animée">
+    <svg viewBox="0 0 600 680" role="img" aria-label="Lettres C F J S A (fade-out vers destinations)">
+      <g class="glyph C"><text class="letter" font-size="300" x="0" y="0" text-anchor="middle">C</text></g>
+      <g class="glyph F"><text class="letter" font-size="300" x="0" y="0" text-anchor="middle">F</text></g>
+      <g class="glyph J"><text class="letter" font-size="300" x="0" y="0" text-anchor="middle">J</text></g>
+      <g class="glyph S"><text class="letter" font-size="300" x="0" y="0" text-anchor="middle">S</text></g>
+      <g class="glyph A"><text class="letter" font-size="300" x="0" y="0" text-anchor="middle">A</text></g>
+    </svg>
+  </div>
+
+  <!-- =========================
+       CONTENU DU SITE (TON CODE)
+       ========================= -->
+  <div class="site" aria-hidden="true">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Cabinet Carré">
+        </div>
+
+        <!-- Image localisation + texte -->
+        <div class="location">
+          <img src="./images/localisation.png" alt="Localisation">
+          <span>Villenoy</span>
+        </div>
+
+        <!-- Bouton hamburger -->
+        <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Donne un id pour aria-controls -->
+        <ul class="nav-links" id="mobileMenu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cabinet.html">Le cabinet</a></li>
+          <li><a href="competences.html" class="active">Nos compétences</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+
+    <!-- ===== MENU FIXE À DROITE ===== -->
+<div class="menu-fixed">
+  <a href="/competences.html" class="active">Missions traditionnelles</a>
+  <a href="/competences_complementaires.html">Missions complémentaires</a>
+
+  <!-- Sous-liens cliquables -->
+  <div class="submenu">
+    <a href="facture-electronique.html">Facture électronique</a>
+    <a href="ecf.html">Examen de Conformité Fiscale</a>
+    <a href="assistance.html">Assistance Gestion et Administrative</a>
+    <a href="particuliers.html">Missions auprès des particuliers</a>
+    <a href="gestion.html">Gestion et Finances</a>
+  </div>
+
+    <!-- 👇 nouvelle phrase sous le menu -->
+  <p class="menu-note">
+    N’hésitez pas à <a href="contact.php">nous contacter</a> pour prendre rendez-vous.
+  </p>
+</div>
+
+
+    <main class="wrap">
+      <h1 class="competences-title">Nos compétences</h1>
+      <p class="intro">
+        Notre cabinet propose une gamme complète de missions, adaptées à la taille, à la forme juridique et au secteur d’activité de votre structure.
+        <span class="sub">Tarification sur mesure, réseau de partenaires (avocats, financiers, gestion de patrimoine) et accompagnement pédagogique.</span>
+      </p>
+
+      <section class="constellation" aria-label="Missions" id="traditionnelles">
+        <div class="bubble b-top-left">
+          <div class="bubble__front"><b>Comptabilité</b></div>
+          <div class="bubble__panel">
+            <ul>
+              <li>Tenue de la comptabilité</li>
+              <li>Supervision et révision comptable</li>
+              <li>Établissement des comptes annuels</li>
+              <li>Conseil courant lié aux comptes annuels</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bubble b-top-right">
+          <div class="bubble__front"><b>Social</b></div>
+          <div class="bubble__panel">
+            <ul>
+              <li>Bulletins de paie et déclarations sociales</li>
+              <li>Démarches d’embauche (contrats, DPAE)</li>
+              <li>Gestion arrêts maladie, maternité, congés payés</li>
+              <li>Fin de contrat et documents associés</li>
+              <li>Assistance en cas de contrôle URSSAF</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="center">
+          <h2 class="title">Missions traditionnelles</h2>
+          <p class="subtitle">Accompagnement dans vos obligations comptables, fiscales, sociales et juridiques.</p>
+          <img class="logo" src="./images/LOGO_CABINET_CARRE_filigrane.png" alt="Logo du cabinet">
+        </div>
+
+        <div class="bubble b-bottom-left">
+          <div class="bubble__front"><b>Fiscal</b></div>
+          <div class="bubble__panel">
+            <ul>
+              <li>Déclarations fiscales périodiques</li>
+              <li>Conseil en optimisation fiscale</li>
+              <li>Assistance en cas de contrôle fiscal</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bubble b-bottom-mid">
+          <div class="bubble__front"><div><b>Audit</b><small> & Commissariat aux comptes</small></div></div>
+          <div class="bubble__panel">
+            <ul>
+              <li>Audit légal : CAC, fusion, apports, transformation</li>
+              <li>Audits contractuels (dont audit d’acquisition)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bubble b-bottom-right">
+          <div class="bubble__front"><b>Juridique</b></div>
+          <div class="bubble__panel">
+            <ul>
+              <li>Assistance à la création d’entreprise</li>
+              <li>Secrétariat juridique annuel</li>
+              <li>Modifications (capital, cession, transformation…)</li>
+              <li>Formalités Greffe du Tribunal de Commerce</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Cabinet d’expert comptable</h4>
+        <p><a href="#">Politique de confidentialité</a></p>
+        <p><a href="#">Mention légale</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email : <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
+        <p>Téléphone : 01 75 17 76 37</p>
+        <p>Adresse : 13 Rue Jean-Pierre Plicque, 77124 Villenoy</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+    </div>
+  </footer>
+  </div><!-- /.site -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const body  = document.body;
+  const intro = document.getElementById('intro');
+  const site  = document.querySelector('.site');
+  const glyphs = Array.from(document.querySelectorAll('#intro .glyph'));
+
+  // Sécurité : si un élément manque, on affiche direct le site
+  if (!intro || !site || glyphs.length === 0) {
+    body.classList.add('show-site');
+    if (intro) intro.style.display = 'none';
+    if (site) site.removeAttribute('aria-hidden');
+    return;
+  }
+
+  let ended = 0;
+
+  function startCrossFade() {
+    // Active les transitions définies en CSS
+    body.classList.add('show-site');
+    site.removeAttribute('aria-hidden');
+
+    // Après le fade, on enlève l’intro du flux
+    const fadeDuration = 800; // doit correspondre à transition: 0.8s
+    setTimeout(() => {
+      intro.style.display = 'none';
+    }, fadeDuration);
+  }
+
+  function onAnimEnd() {
+    ended++;
+    if (ended >= glyphs.length) {
+      glyphs.forEach(g => g.removeEventListener('animationend', onAnimEnd));
+      startCrossFade();
+    }
+  }
+
+  // Quand toutes les lettres ont terminé leur animation
+  glyphs.forEach(g => g.addEventListener('animationend', onAnimEnd));
+});
+</script>
+
+
+</body>
+</html>

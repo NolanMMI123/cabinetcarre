@@ -1,0 +1,131 @@
+/* ===== PAGE GESTION & FINANCE ===== */
+
+.gestion-page {
+  font-family: "EB Garamond", serif;
+  color: #273643;
+}
+
+/* Section principale */
+.gest-hero {
+  position: relative;
+  min-height: 70vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Filigrane C à gauche */
+.gest-filigrane {
+  position: absolute;
+  top: 8em;          /* distance depuis le haut */
+  left: 2em;            /* collé à gauche */
+  width: 25%;
+  opacity: 0.25;      /* effet filigrane */
+  pointer-events: none;  /* ne bloque aucun clic */
+  z-index: 0;        /* passe derrière tout */
+}
+
+.gest-filigrane img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Contenu centré */
+.gest-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Bulle titre à droite du bloc */
+.gest-oval {
+  margin: 0 auto 26px;       /* pousse la bulle vers la droite */
+  width: min(420px, 45vw);
+  height: clamp(170px, 21vw, 220px);
+  background: #6b8897;
+  border-radius: 50% / 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  color: #122330;
+}
+
+.gest-oval h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 48px);  /* ← police plus grande */
+  line-height: 1.2;
+}
+
+/* Phrase d’accroche */
+.gest-lead {
+  margin: 20px 0 30px;
+  font-size: 22px;
+  color: #112983;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Bloc central */
+.gest-box {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  font-size: 17px;
+}
+
+.gest-item-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #112983;
+}
+
+.gest-item-text {
+  margin: 6px auto 0;
+  max-width: 620px;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.gest-separator {
+  margin: 18px 0;
+  font-size: 22px;
+}
+
+/* Phrase finale */
+.gest-final {
+  margin: 22px 0 0;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #112983;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gest-filigrane {
+    opacity: 0.08;
+    width: 55%;
+  }
+
+  .gest-inner {
+    padding: 0 12px;
+  }
+
+  .gest-oval {
+    margin-left: auto;
+    margin-right: auto;
+    width: min(360px, 80vw);
+  }
+
+  .gest-box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .gest-filigrane {
+    display: none;  /* tu peux l’enlever sur mobile si ça gêne la lisibilité */
+  }
+}

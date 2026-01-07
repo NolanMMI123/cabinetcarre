@@ -1,0 +1,133 @@
+/* ========= PAGE ECF ========= */
+
+/* Titre dans l’ovale */
+.ecf-hero {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.ecf-oval {
+  margin: 0 auto 10px;
+  width: min(420px, 36vw);
+  height: clamp(180px, 22vw, 240px);
+  background: #6b8897;
+  border-radius: 50% / 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #122330;
+  padding: 16px;
+  margin-bottom: 26px; /* ↑ ajoute un vrai espace propre */
+}
+
+.ecf-oval h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.1;
+}
+
+.ecf-acronym {
+  margin-top: .4rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.6vw, 40px); /* même valeur que le h1 */
+  line-height: 1.1;
+}
+
+.ecf-subtitle {
+  margin: 0;
+  font-family: "EB Garamond", serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Texte courant */
+.ecf-intro,
+.ecf-points,
+.ecf-details {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #273643;
+}
+
+.ecf-intro p,
+.ecf-points p,
+.ecf-details p {
+  margin: 0 0 22px;
+}
+
+/* Lien vers les 10 points */
+.ecf-link-to-points {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.ecf-link-to-points a {
+  color: #112983;
+  text-decoration: underline;
+}
+
+/* Liste numérotée des points ECF */
+.ecf-points ol {
+  margin: 12px 0 0;
+  padding-left: 70px;
+}
+
+.ecf-points li {
+  margin-bottom: 0;
+}
+
+/* Bloc final d’appel à l’action */
+.ecf-cta {
+  max-width: 900px;
+  margin: 32px auto 40px;
+  text-align: center;
+  font-family: "EB Garamond", serif;
+}
+
+.ecf-cta-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #112983;       /* ← couleur demandée */
+}
+
+.ecf-cta-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;     /* ← mise en gras */
+  color: #112983;       /* ← même couleur */
+}
+
+.ecf-cta-text a {
+  text-decoration: underline;   /* soulignement simple */
+  color: #112983;               /* même couleur que le texte */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Petit ajustement responsive */
+@media (max-width: 900px) {
+  .ecf-oval {
+    width: min(360px, 70vw);
+  }
+
+  .ecf-intro,
+  .ecf-points,
+  .ecf-details,
+  .ecf-cta {
+    padding: 0 12px;
+  }
+}

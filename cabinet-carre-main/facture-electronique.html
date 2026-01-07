@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facture électronique – Cabinet Carré</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="./styles/style2.css">
+  <link rel="stylesheet" href="./styles/style_compétences.css">
+
+  <!-- Style spécifique facture -->
+  <link rel="stylesheet" href="./styles/style_facture.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="topbar">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Cabinet Carré">
+        </div>
+
+        <div class="location">
+          <img src="./images/localisation.png" alt="Localisation">
+          <span>Villenoy</span>
+        </div>
+
+        <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="mobileMenu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cabinet.html">Le cabinet</a></li>
+          <li><a href="competences.html" class="active">Nos compétences</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <!-- ===== MENU FIXE ===== -->
+  <aside class="menu-fixed" aria-label="Navigation compétences">
+    <a href="competences.html#traditionnelles">Missions traditionnelles</a>
+    <a href="competences.html#complementaires">Missions complémentaires</a>
+
+    <div class="submenu">
+      <a href="facture-electronique.html" class="active" aria-current="page">Facture électronique</a>
+      <a href="ecf.html">Examen de Conformité Fiscale</a>
+      <a href="assistance.html">Assistance Gestion et Administrative</a>
+      <a href="particuliers.html">Missions auprès des particuliers</a>
+      <a href="gestion.html">Gestion et Finances</a>
+    </div>
+
+    <p class="menu-note">
+      N’hésitez pas à <a href="contact.php">nous contacter</a> pour prendre rendez-vous.
+    </p>
+  </aside>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="wrap facture-page">
+
+    <!-- Titre principal -->
+    <section class="facture-hero">
+      <h1>Facture électronique</h1>
+      <p class="facture-sub">
+        Accompagnement à la mise en place de la facture électronique et missions connexes.
+      </p>
+    </section>
+
+    <!-- Bloc calendrier + obligations -->
+    <section class="facture-grid">
+
+      <!-- COLONNE GAUCHE : calendrier -->
+      <div class="facture-left">
+        <h2 class="facture-h2 facture-h2--calendrier">Calendrier</h2>
+        <p class="facture-intro">
+          Nous vous accompagnons dans votre transition vers les deux échéances majeures.
+        </p>
+
+        <div class="facture-timeline">
+
+          <!-- Ligne 2027 + petite flèche haute -->
+          <div class="timeline-row timeline-row-top">
+            <img src="./images/fleche_top.png" alt="" class="timeline-arrow small-arrow">
+            <p class="timeline-text">
+              <span class="timeline-date">du 1er Septembre 2027 :</span>
+              <span class="timeline-detail">
+                obligation de « e-invoicing » et de « e-reporting » étendue aux PME et micro-entreprises.
+              </span>
+            </p>
+          </div>
+
+          <!-- Grande flèche centrale -->
+          <div class="timeline-middle">
+            <img src="./images/fleche_mid.png" alt="Flèche chronologique" class="timeline-arrow mid-arrow">
+          </div>
+
+          <!-- Ligne 2026 + petite flèche basse -->
+          <div class="timeline-row timeline-row-bottom">
+            <img src="./images/fleche_bot.png" alt="" class="timeline-arrow small-arrow">
+            <p class="timeline-text">
+              <span class="timeline-date">du 1er Septembre 2026 :</span>
+              <span class="timeline-detail">
+                toutes les entreprises assujetties à la TVA devront être en mesure de recevoir des factures électroniques.
+                Les grandes entreprises et entreprises de taille intermédiaire auront l’obligation d’émettre leurs factures
+                au format électronique « e-invoicing » et de transmettre leurs données de paiement à l’administration
+                fiscale via le « e-reporting ».
+              </span>
+            </p>
+          </div>
+
+        </div><!-- /.facture-timeline -->
+      </div>
+
+      <!-- COLONNE DROITE : obligations -->
+      <div class="facture-right">
+        <h3 class="facture-h3">
+          Obligations qui s’accompagnent de 2 changements majeurs pour les entreprises :
+        </h3>
+
+        <ul class="facture-obligations">
+          <li>
+            se doter d’une (ou plusieurs) plateforme de dématérialisation partenaire (<strong>PDP</strong>).
+          </li>
+          <li>
+            normer les factures émises à destination des entreprises au format électronique <strong>e-invoicing</strong>
+            et intégrer les ventes aux particuliers au format <strong>e-reporting</strong>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bloc missions proposées -->
+    <section class="facture-missions">
+      <h2 class="facture-h2 facture-h2--missions">
+        Nous vous proposons plusieurs missions dans ce cadre
+      </h2>
+
+      <ul class="facture-missions-list">
+        <li>l’accompagnement au choix de la PDP la plus appropriée ;</li>
+        <li>le déploiement de son utilisation au sein de votre structure ;</li>
+        <li>l’assistance à la mise en place d’un outil de facturation électronique ;</li>
+        <li>l’externalisation de votre facturation ;</li>
+        <li>le mandat de paiement de vos factures fournisseurs.</li>
+      </ul>
+
+      <p class="facture-contact">
+        N’hésitez pas à <span><a href="contact.php">nous contacter</a></span> pour un diagnostic personnalisé.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Cabinet d’expert comptable</h4>
+        <p><a href="#">Politique de confidentialité</a></p>
+        <p><a href="#">Mention légale</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email : <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
+        <p>Téléphone : 01 75 17 76 37</p>
+        <p>Adresse : 13 Rue Jean-Pierre Plicque, 77124 Villenoy</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+    </div>
+  </footer>
+</body>
+</html>

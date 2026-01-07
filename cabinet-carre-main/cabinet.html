@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Cabinet - Cabinet Carré</title>
+  <link rel="stylesheet" href="./styles/style2.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">
+      <img src="./images/logo.png" alt="Cabinet Carré">
+    </div>
+
+    <!-- Image localisation + texte -->
+<div class="location">
+<img src="./images/localisation.png" alt="Localisation">
+<span>Villenoy</span>
+</div>
+
+  <!-- Bouton hamburger -->
+  <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Donne un id pour aria-controls -->
+  <ul class="nav-links" id="mobileMenu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="cabinet.html" class="active">Le cabinet</a></li>
+    <li><a href="competences.html">Nos compétences</a></li>
+    <li><a href="contact.php">Contact</a></li>
+    <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+  </ul>
+  </div>
+  <div class="nav-overlay"></div>
+</nav>
+
+
+<!-- ===== SECTION 1 : Hero "Le cabinet" ===== -->
+<main>
+  <section class="cabinet-hero">
+    <div class="cabinet-frame">
+      <h2 class="cabinet-title">Audit, expertise & conseils</h2>
+      <div class="divider"></div>
+      <div class="cabinet-text">
+        <p>Fondé en 2014 dans le prolongement du Cabinet Carré et Associés existant depuis 2001, le Cabinet Carré Expertise et Conseil est né de la volonté de créer une structure vouée à mettre ses compétences au service des entrepreneurs désireux de nouer une relation de proximité.</p>
+        <p>Cabinet à taille humaine, nous privilégions un accompagnement stable et performant sur le long terme.</p>
+        <p>Notre souplesse d’action nous permet de proposer des solutions à tous les types d’entreprise et à tous les stades de leur vie, quel que soit leur secteur d’activité et leur situation géographique.</p>
+        <p>Notre organisation nous permet d’assurer une réactivité optimale pour répondre au mieux à toutes vos attentes dans le respect des normes professionnelles.</p>
+        <p>Le Cabinet Carré Expertise et Conseil vous propose une gamme de prestations administratives, comptables, fiscales, juridiques et sociales pour vous assister à tous les stades de votre activité professionnelle.</p>
+        <p>Une équipe expérimentée, stable et dynamique est à votre écoute pour entretenir une relation de proximité avec une réactivité permettant d’assurer un travail de qualité.</p>
+      </div>
+    </div>
+
+    <!-- Sous-menu fixé à droite -->
+    <aside class="cabinet-aside">
+      <div class="cabinet-card">
+        
+        <ul class="cabinet-list">
+          <li><a href="#pourquoi">Pourquoi faire appel à nous ?</a></li>
+          <li><a href="#valeurs">Nos valeurs</a></li>
+          <li><a href="#savoir-faire">Nos savoir-faire</a></li>
+          <li><a href="#equipe">Notre équipe</a></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+<!-- ===== SECTION 2 : Pourquoi faire appel à nous ? ===== -->
+<section class="cabinet-why" id="pourquoi">
+  <h2 class="cabinet-title">Pourquoi faire appel à nous ?</h2>
+  <div class="cabinet-intro">
+    <p class="cabinet-phrase">
+      La rigueur des chiffres – la souplesse de l’analyse
+    </p>
+    <p class="cabinet-phrase2">
+      Une organisation et un fonctionnement fondés sur des valeurs fortes pour mettre notre expertise au service de votre entreprise.
+    </p>
+    <p class="cabinet-phrase3">
+      Que vous soyez créateur d’entreprise, dirigeant d’une <strong>TPE</strong>, d’une <strong>PME</strong>, d’une <strong>PMI</strong>, 
+      <strong>profession libérale</strong><br>
+      ou toute autre personne pouvant avoir besoin de nos services, n’hésitez pas à nous solliciter pour en parler.
+    </p>
+  </div>
+
+  <div class="cabinet-grid v7">
+    <figure class="cabinet-item">
+      <img src="./images/perso1.jpg" alt="">
+      <figcaption class="cabinet-label">Me consacrer à mon métier</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso2.jpg" alt="">
+      <figcaption class="cabinet-label">Me libérer des aspects<br>matériels de gestion</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso3.jpg" alt="">
+      <figcaption class="cabinet-label">Optimiser ma fiscalité,<br>protéger mon patrimoine</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso4.jpg" alt="">
+      <figcaption class="cabinet-label">Créer mon entreprise</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso5.jpg" alt="">
+      <figcaption class="cabinet-label">Investir et consolider<br>mes acquis</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso6.jpg" alt="">
+      <figcaption class="cabinet-label">Un partenaire rigoureux,<br>à l’écoute de mes enjeux</figcaption>
+    </figure>
+
+    <figure class="cabinet-item">
+      <img src="./images/perso7.jpg" alt="">
+      <figcaption class="cabinet-label">M’accompagner dans mes projets professionnels</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 : Nos valeurs ===== -->
+<section class="valeurs" id="valeurs">
+  <h2 class="cabinet-title">Nos valeurs</h2>
+
+  <div class="valeurs-grid">
+    <article class="valeur">
+      <div class="valeur-media">
+        <img src="./images/performance.png" alt="Performance">
+      </div>
+      <h3>Performance</h3>
+      <p>des prestations étendues pour vous accompagner durablement et efficacement à long terme</p>
+    </article>
+
+    <article class="valeur">
+      <div class="valeur-media">
+        <img src="./images/proximite.png" alt="Proximité">
+      </div>
+      <h3>Proximité</h3>
+      <p>un interlocuteur dédié vous accompagne dans votre projet</p>
+    </article>
+
+    <article class="valeur">
+      <div class="valeur-media">
+        <img src="./images/ecoute.png" alt="Écoute">
+      </div>
+      <h3>Écoute</h3>
+      <p>nous écoutons vos projets et enjeux, les analysons ensemble pour vous conseiller</p>
+    </article>
+
+    <article class="valeur">
+      <div class="valeur-media">
+        <img src="./images/reactivite.png" alt="Réactivité">
+      </div>
+      <h3>Réactivité</h3>
+      <p>tout est mis en œuvre pour vous apporter des solutions adaptées à vos demandes</p>
+    </article>
+
+    <article class="valeur">
+      <div class="valeur-media">
+        <img src="./images/deontologie.png" alt="Déontologie">
+      </div>
+      <h3>Déontologie</h3>
+      <p>nous garantissons la confidentialité des missions qui nous sont confiées</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 : Savoir-faire & secteurs ===== -->
+<section class="secteurs" id="savoir-faire">
+  <h2 class="secteurs-title">Des savoir-faire multidisciplinaires et des spécialisations sectorielles</h2>
+  <p class="secteurs-lead">Le Cabinet <span class="bleu">Carré Expertise et Conseil</span> intervient dans tous les secteurs d’activité.</p>
+  <p class="secteurs-lead2">Nous avons développé des compétences particulières dans les domaines suivants :</p>
+
+<div class="secteurs-ligne1">
+  <p class="secteurs-partners">
+    <strong>Doté d’un réseau de partenaires :</strong> avocats, banquiers, gestionnaires de patrimoine…
+  </p>
+  <div class="secteur card--featured">
+    <img src="./images/restaurant.jpeg" alt="Hôtellerie – restauration">
+    <span>Hôtellerie – restauration</span>
+  </div>
+</div>
+  <div class="secteurs-grid">
+    <a class="secteur"><img src="./images/medical.jpg" alt=""><span>Médical<br>para-médical</span></a>
+    <a class="secteur"><img src="./images/nettoyage.jpg" alt=""><span>Services<br>(informatique – nettoyage – conseil)</span></a>
+    <a class="secteur"><img src="./images/aide à la personne.jpg" alt=""><span>Associations<br>d’aide à la personne</span></a>
+    <a class="secteur"><img src="./images/recycleur de metaux.jpg" alt=""><span>Recyclage de métaux</span></a>
+    <a class="secteur"><img src="./images/btp.jpg" alt=""><span>BTP</span></a>
+    <a class="secteur"><img src="./images/galaerie d'art.jpg" alt=""><span>Galerie d’art</span></a>
+    <a class="secteur"><img src="./images/tabac.jpg" alt=""><span>Débitants de tabac</span></a>
+    <a class="secteur"><img src="./images/commerces alimentaires.jpg" alt=""><span>Commerces alimentaires<br>de détail</span></a>
+    <a class="secteur"><img src="./images/salon de coiffure.jpg" alt=""><span>Salons de coiffure<br>barber shop</span></a>
+    <a class="secteur"><img src="./images/institut de beaute.jpg" alt=""><span>Institut de beauté</span></a>
+    <a class="secteur"><img src="./images/assurance.jpg" alt=""><span>Administrateurs de biens<br>Courtage d’assurance<br>Immobilier</span></a>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 5 : Notre équipe ===== -->
+<section class="equipe" id="equipe">
+
+  <!-- Intro -->
+<div class="equipe-intro">
+  <h2>Une <em>équipe expérimentée</em>, stable et dynamique vous accompagne<br>depuis la création du cabinet.</h2>
+  <div class="divider"></div>
+
+  <h3>
+    Frédérique Carré – Experte Comptable :<br>
+    <span class="equipe-sub">plus de 30 ans d’expérience dans la profession</span>
+  </h3>
+
+  <p>Après avoir obtenu son diplôme d’expertise comptable en 1995, Frédérique Carré a exercé dans des cabinets de différentes taille : du cabinet à taille humaine aux grands cabinets d’audit.</p>
+  <p>De la richesse des expériences acquises durant ce parcours auprès d’une gamme de clients aux exigences renouvelées est née la volonté de créer une structure à taille humaine vouée à mettre ses compétences au service des entrepreneurs désireux de nouer une relation de proximité à long terme.</p>
+  <p>Frédérique Carré est inscrite à l’ordre des experts-comptables de la région parisienne et à la compagnie des commissaires aux comptes de Paris. Soucieuse de transmettre sa passion du métier aux jeunes générations, elle a développé en parallèle des fonctions d’enseignement en Master CCA à l’IAE Gustave Eiffel et dans le cadre de la préparation au DSCG.</p>
+</div>
+
+
+  <!-- Cartes équipe -->
+  <h2 class="equipe-title">Notre équipe</h2>
+  <div class="divider"></div>
+  <div class="equipe-grid">
+    <article class="membre">
+      <img src="./images/avatar_frederique.png" alt="Frédérique Carré">
+      <h3>Frédérique Carré</h3>
+      <p>Experte-comptable</p>
+    </article>
+    <article class="membre">
+      <img src="./images/avatar_marie.png" alt="Marie Saulnier">
+      <h3>Marie Saulnier</h3>
+      <p>Associée</p>
+    </article>
+    <article class="membre">
+      <img src="./images/avatar_adeline.png" alt="Adeline Beaubie">
+      <h3>Adeline Beaubie</h3>
+      <p>Collaboratrice</p>
+    </article>
+  </div>
+
+  <!-- Responsables de dossiers -->
+  <div class="responsables">
+    <h2>Le suivi de votre dossier est réalisé par un interlocuteur unique<br>accompagné de l’experte-comptable.</h2>
+    <div class="divider"></div>
+    <h3>Les responsables de dossiers</h3>
+    <p class="equipe-sub"><span class="italic">Marie Saulnier</span> et <span class="italic">Adeline Beaubie</span></p>
+    <p class="equipe-note">Grâce à la complémentarité de leurs expériences, elles vous assistent efficacement à chaque étape du développement de votre activité.</p>
+    
+    <div class="responsables-grid">
+      <div class="resp">
+        <p>Marie Saulnier possède une solide expérience de plus de 40 ans acquise dans plusieurs cabinets d’expertise-comptable, avant de participer activement à la création du cabinet en 2014.</p>
+      </div>
+      <div class="resp">
+        <p>Adeline Beaubie s’est orientée vers la comptabilité en 2010, après avoir occupé des postes d’assistante de gestion dans diverses structures. Présente au cabinet depuis sa création, elle met à profit ses compétences diversifiées au service d’une clientèle variée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Cabinet d’expert comptable</h4>
+        <p><a href="#">Politique de confidentialité</a></p>
+        <p><a href="#">Mention légale</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email : <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
+        <p>Téléphone : 01 75 17 76 37</p>
+        <p>Adresse : 13 Rue Jean-Pierre Plicque, 77124 Villenoy</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+    </div>
+  </footer>
+
+<script src="./script/script.js"></script>
+</body>
+</html>

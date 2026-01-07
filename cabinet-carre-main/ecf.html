@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Examen de Conformité Fiscale (ECF) – Cabinet Carré</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="./styles/style2.css">
+  <link rel="stylesheet" href="./styles/style_compétences.css">
+  <!-- Style spécifique ECF -->
+  <link rel="stylesheet" href="./styles/style_ecf.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="topbar">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Cabinet Carré">
+        </div>
+
+        <div class="location">
+          <img src="./images/localisation.png" alt="Localisation">
+          <span>Villenoy</span>
+        </div>
+
+        <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="mobileMenu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cabinet.html">Le cabinet</a></li>
+          <li><a href="competences.html" class="active">Nos compétences</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <!-- ===== MENU FIXE À DROITE ===== -->
+  <aside class="menu-fixed" aria-label="Navigation compétences">
+    <a href="competences.html">Missions traditionnelles</a>
+    <a href="competences_complementaires.html">Missions complémentaires</a>
+
+    <div class="submenu">
+      <a href="facture-electronique.html">Facture électronique</a>
+      <a href="ecf.html" class="active" aria-current="page">Examen de Conformité Fiscale</a>
+      <a href="assistance.html">Assistance Gestion et Administrative</a>
+      <a href="particuliers.html">Missions auprès des particuliers</a>
+      <a href="gestion.html">Gestion et Finances</a>
+    </div>
+
+    <p class="menu-note">
+      N’hésitez pas à <a href="contact.php">nous contacter</a> pour prendre rendez-vous.
+    </p>
+  </aside>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="wrap ecf-page">
+
+    <!-- Bandeau ECF -->
+    <section class="ecf-hero">
+      <div class="ecf-oval">
+        <h1>Examen de<br>Conformité fiscale</h1>
+        <div class="ecf-acronym">(ECF)</div>
+      </div>
+      <p class="ecf-subtitle">Sécurisez votre fiscalité</p>
+    </section>
+
+    <!-- Texte introductif -->
+    <section class="ecf-intro">
+      <p>
+        Notre cabinet d’expertise comptable est habilité et expérimenté pour réaliser des Examens de Conformité Fiscale (ECF)
+        dans le respect de la réglementation, avec une approche pédagogique.
+      </p>
+      <p>
+        Nous vous accompagnons tout au long du processus, avec une analyse rigoureuse, des conseils adaptés et une vision claire
+        des enjeux fiscaux pour votre activité.
+      </p>
+      <p>
+        <strong>L’Examen de Conformité Fiscale (ECF)</strong> est un dispositif mis en place par l’administration fiscale française qui permet
+        à une entreprise, sur la base du volontariat, de faire vérifier par un tiers de confiance la bonne application
+        de certaines règles fiscales.
+      </p>
+      <p>
+        Cette vérification porte sur <strong>10 points clés</strong> du droit fiscal, identifiés comme sensibles ou à fort enjeu pour
+        les entreprises. Elle permet une réduction des risques fiscaux : en cas de contrôle, l’administration ne remet pas
+        en cause les points validés dans l’ECF, sauf en cas de fraude ou d’anomalie grave.
+      </p>
+
+      <p class="ecf-link-to-points">
+        &#128269; Les 10 points audités dans l’ECF
+      </p>
+    </section>
+
+    <!-- Liste des 10 points -->
+    <section id="ecf-points" class="ecf-points">
+      <p>
+        L’examen porte sur les 10 points suivants, définis par l’article 13 de l’arrêté du 13 janvier 2021 :
+      </p>
+
+      <ol>
+        <li>Conformité du Fichier des Écritures Comptables (FEC).</li>
+        <li>Qualité comptable du FEC au regard des normes comptables.</li>
+        <li>Conformité du logiciel de caisse (si concerné).</li>
+        <li>Respect des règles de déductibilité des charges.</li>
+        <li>Respect des règles relatives aux amortissements.</li>
+        <li>Respect des règles relatives aux provisions.</li>
+        <li>Respect des règles relatives à la TVA.</li>
+        <li>
+          Respect des règles relatives à la détermination des charges à payer et des produits à recevoir.
+        </li>
+        <li>Respect des règles de détermination du résultat fiscal.</li>
+        <li>Respect des règles relatives aux crédits et réductions d’impôt.</li>
+      </ol>
+    </section>
+
+    <!-- Suite : formalisation et garantie -->
+    <section class="ecf-details">
+      <p>
+        L’ECF est formalisé dans un <strong>Compte Rendu de Mission (CRM)</strong>, établi après la clôture de l’exercice et
+        <strong>transmis à l’administration fiscale</strong> via la déclaration de résultats (liasse fiscale).
+      </p>
+      <p>
+        Dans l’hypothèse où un rappel réalisé lors d’un contrôle fiscal ultérieur porterait sur un point validé dans le cadre
+        de l’ECF, nous nous engageons à vous rembourser les honoraires engagés à ce titre.
+      </p>
+    </section>
+
+    <!-- Appel à l’action final -->
+    <section class="ecf-cta">
+      <p class="ecf-cta-title">
+        Vous souhaitez bénéficier de l’ECF pour votre entreprise ?
+      </p>
+      <p class="ecf-cta-text">
+        <a href="contact.php">Contactez-nous</a> dès aujourd’hui pour prendre rendez-vous et échanger sur vos besoins, sans engagement.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Cabinet d’expert comptable</h4>
+        <p><a href="#">Politique de confidentialité</a></p>
+        <p><a href="#">Mention légale</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email : <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
+        <p>Téléphone : 01 75 17 76 37</p>
+        <p>Adresse : 13 Rue Jean-Pierre Plicque, 77124 Villenoy</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+    </div>
+  </footer>
+</body>
+</html>

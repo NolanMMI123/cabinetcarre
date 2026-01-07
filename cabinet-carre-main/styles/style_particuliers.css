@@ -1,0 +1,136 @@
+/* ===== PAGE PARTICULIERS ===== */
+
+.particuliers-page {
+  font-family: "EB Garamond", serif;
+  color: #273643;
+}
+
+/* Section principale */
+.part-hero {
+  position: relative;
+  min-height: 70vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.particuliers-filigrane {
+  position: absolute;
+  top: 8em;          /* distance depuis le haut */
+  left: 2em;            /* collé à gauche */
+  width: 25%;
+  opacity: 0.25;      /* effet filigrane */
+  pointer-events: none;  /* ne bloque aucun clic */
+  z-index: 0;        /* passe derrière tout */
+}
+
+.particuliers-filigrane img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Contenu centré */
+.part-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Bulle titre */
+.part-oval {
+  margin: 0 auto 26px;
+  width: min(480px, 45vw);
+  height: clamp(180px, 22vw, 240px);
+  background: #6b8897;
+  border-radius: 50% / 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  color: #122330;
+}
+.part-oval h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.2;
+}
+
+/* Questions en dessous */
+.part-question {
+  margin: 6px 0;
+  font-size: 22px;
+  color: #112983;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+
+/* Phrase de transition */
+.part-intro {
+  margin: 32px auto 28px;
+  max-width: 780px;
+  font-size: 18px;
+}
+
+/* Bloc bleu au centre */
+.part-box {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  background: #8fa9b7;
+  padding: 30px 40px;
+  color: #122330;
+}
+.part-box p {
+  margin: 0;
+  font-size: 18px;
+}
+.part-italic {
+  font-style: italic;
+}
+.part-dot {
+  margin: 18px 0;
+  font-size: 26px;
+}
+
+/* Phrase finale */
+.part-contact {
+  margin: 18px 0 0;
+  font-size: 18px;   /* garde l’italique si tu le veux */
+  font-weight: 700;     /* ← AJOUT : texte en gras */
+  color: #112983;
+  text-align: center;
+}
+
+.part-contact a {
+  text-decoration: underline;   /* soulignement simple */
+  color: inherit;               /* même couleur que le texte */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .part-watermark {
+    opacity: 0.08;
+    width: 55%;
+  }
+  .part-box {
+    padding: 24px 18px;
+  }
+  .part-inner {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .particuliers-filigrane {
+    display: none; /* si le C gêne trop sur mobile */
+  }
+  .part-oval {
+    width: min(360px, 80vw);
+  }
+}

@@ -1,0 +1,79 @@
+/* style_assistance.css */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  max-width: 1050px;
+  margin: 24px auto;
+}
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.oval-card {
+  text-align: center;
+}
+
+.oval {
+  margin: 0 auto 12px;
+  width: min(420px, 36vw);     /* ← légèrement plus petite */
+  height: clamp(180px, 22vw, 260px); /* ← moins haute */
+  background: #6b8897;
+  border-radius: 50% / 55%;
+  display: grid;
+  place-items: center;
+  color: #122330;
+  padding: 12px;
+}
+
+
+.oval h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.8vw, 42px); /* ← + grand */
+  line-height: 1.1;
+}
+
+.oval h2 small {
+  display: block;
+  margin-top: .4rem;
+  font-family: inherit;         /* même police que “Assistance” */
+  font-weight: inherit;         /* même poids */
+  font-size: inherit;           /* même taille */
+  line-height: inherit;
+  text-transform: none;
+}
+
+.lead {
+  margin: 6px 0 24px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.4;
+
+  min-height: 70px; /* ↓ assure une hauteur égale dans les deux colonnes */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* optionnel : centre verticalement */
+  text-align: center;
+}
+
+.list {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list li {
+  padding: 10px 0;
+  position: relative;
+}
+.list li + li {
+  border-top: 1px dotted #9ab0be;
+}

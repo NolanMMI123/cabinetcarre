@@ -1,0 +1,248 @@
+:root{
+  --blue:#112983;
+}
+
+/* ===== NAVBAR ===== */
+nav.navbar{
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1100;
+  background: #fff;
+}
+
+.navbar-container{
+  padding: 0 24px;
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.logo{ grid-column: 2; justify-self: center; }
+.logo img{ height: 100px; object-fit: contain; display: block; }
+
+.nav-links{
+  grid-column: 3; justify-self: end;
+  display: flex; gap: 22px;
+  list-style: none; margin: 0; padding: 0;
+}
+
+.nav-links a{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px; /* réduit de 25% par rapport à 16px */
+  color: #2b2f36; /* gris foncé lisible */
+  text-decoration: none; /* pas de soulignement par défaut */
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.nav-links a:hover{
+  color: #1f7ea6; /* bleu sur survol */
+}
+
+.nav-links a.active{
+  color: #1f7ea6; /* surbrillance bleue */
+  font-weight: 500;
+  text-decoration: none; /* pas de soulignement */
+}
+
+main, .main-content, #content{ margin-top: 100px; }
+
+
+/* === ACCUEIL === */
+main.accueil{ margin-top: 101px; }
+.hero-belt{
+  margin: 0 50px 50px;
+  display: grid; grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 28px; align-items: start;
+}
+.side-col{ display:flex; justify-content:center; }
+.side-photo{
+  width: 75%; max-width: 520px; height: 730px;
+  object-fit: cover;
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  filter: grayscale(15%) contrast(1.05) saturate(.9);
+  border-radius: 14px;
+}
+.center-col{ text-align:center; max-width: 720px; margin: 0 auto; }
+.center-col h1{
+  margin: 6px 14px; margin-left: 16%;
+  font-weight: 400; font-size: 24px;
+  font-family: "Bradley Hand ITC", cursive;
+}
+.center-col .accent{ color: var(--blue); font-weight: 700; }
+.center-col .bleu{ color: var(--blue); }
+.baseline{
+  font-family: "Bradley Hand ITC", cursive;
+  margin: 0 0 18px; font-size: 18px;
+  color: #112983; line-height: 1.45; font-size: 150%;
+}
+.center-figure{ position: relative; display:inline-block; margin:6px 0 80px; overflow:visible; box-shadow:0 18px 40px rgba(0,0,0,.12); }
+.center-figure img{ width:100%; height:auto; display:block; border-radius:14px; }
+.center-caption{
+  position: absolute; bottom:0; left:0; right:0;
+  background: rgba(255,255,255,.85);
+  padding:14px 18px; font-size:21px;
+  color:#111; font-family:"Gabriola", serif; font-weight:700; font-style:italic; line-height:1.5;
+  width:75%; margin:0 auto; transform:translateY(50%);
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+  border-radius:14px;
+}
+.center-caption a{ color: var(--blue); }
+.conclusion{ text-align:center; margin-top:30px; }
+.conclusion p{ font-size:16px; color:#222; }
+
+/* === FOOTER === */
+.footer{ background:#f9f9f9; border-top:1px solid #ccc; font-size:14px; color:#333; }
+.footer-container{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; width:1000px; padding-left:31%; }
+.footer-col{ flex:1 1; width:200px; }
+.footer-col h4{ font-weight:bold; margin-bottom:10px; color:#112983; }
+.footer-col p,.footer-col a{ margin:5px 0; color:#333; text-decoration:none; }
+.footer-col a:hover{ color:#112983; text-decoration:underline; }
+.footer-bottom{ text-align:center; font-size:13px; color:#666; }
+
+/* === CAROUSEL (mobile) === */
+.carousel{ display:none; position:relative; overflow:hidden; max-width:100%; margin:20px auto; }
+.carousel-track{ display:flex; transition:transform .5s ease-in-out; }
+.carousel-slide{ min-width:100%; box-sizing:border-box; }
+.carousel-slide img{ width:100%; height:auto; display:block; object-fit:cover; }
+.carousel-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.4); border:none; color:#fff; font-size:32px; cursor:pointer; padding:6px 12px; }
+.carousel-btn.prev{ left:10px; }
+.carousel-btn.next{ right:10px; }
+
+/* === HAMBURGER === */
+.hamburger{ display:none; width:42px; height:42px; border:none; background:transparent; cursor:pointer; justify-self:end; position:relative; }
+.hamburger span{ display:block; height:2px; width:24px; background:#111; margin:6px auto; transition:transform .25s ease, opacity .25s ease; }
+.hamburger.is-open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity:0; }
+.hamburger.is-open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+.intro-mobile{ display:none; }
+.carousel-caption{ display:none; }
+/* === RESPONSIVE ≤ 900px === */
+@media (max-width:900px){
+  html,body{ max-width:100%; overflow-x:hidden; }
+
+  /* NAVBAR */
+  .navbar-container{
+    width:100%; max-width:none; height:70px;
+    padding:10px 0px;
+    display:flex; align-items:center; justify-content:center;
+    gap:12px; position:relative;
+  }
+  .logo{ order:1; position:absolute; left:50%; transform:translateX(-50%); }
+  .logo img{ height:70px; max-width:150px; display:block; }
+  .hamburger{
+    display:block; order:2;
+    position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  }
+
+  .nav-links{
+    position:fixed; top:0; right:0; height:100vh; width:78vw; max-width:320px;
+    background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.15);
+    padding:90px 24px 24px; margin:0; list-style:none;
+    display:flex; flex-direction:column; gap:18px;
+    transform:translateX(100%);
+    transition:transform .3s ease; z-index:1200;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:18px; text-decoration:none; color:#2b2f36; }
+
+  .nav-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.3); z-index:1100; display:none; }
+  .nav-overlay.show{ display:block; }
+  body.menu-open{ overflow:hidden; }
+
+  /* MAIN */
+  main.accueil{ margin-top:80px; padding:0 16px; }
+  .hero-belt{ display:none; }
+
+  /* TEXTE AVANT CAROUSEL */
+  .center-col{ display:block !important; visibility: visible !important; opacity: 1 !important; margin:20px auto; text-align:center; }
+  .center-col h1{
+    font-family:"Bradley Hand ITC", cursive;
+    font-size:22px; margin:16px 0 12px;
+    text-align:center;
+  }
+  .baseline{
+    display: block !important;
+    font-family:"Gabriola", serif;
+    font-size:16px; line-height:1.5; color:#112983;
+    margin:0 0 18px; text-align:center;
+  }
+  /* TEXTE MOBILE (entre logo et carrousel) */
+.intro-mobile{
+    display:block;
+    text-align:center;
+    margin: 10px 0 12px;
+  }
+.intro-mobile h1{
+font-family:"Bradley Hand ITC", cursive;
+font-size:20px; /* taille réduite */
+margin: 12px 0 8px;
+text-align:center; 
+}
+  .intro-mobile .baseline{
+    font-family:"Bradley Hand ITC", cursive;
+    font-size:16px;
+    line-height:1.5;
+    color:#112983;
+    margin: 0 0 14px;
+  }
+.intro-mobile .accent{
+color:var(--blue); /* bleu défini dans :root */
+font-weight:700;
+}
+
+.intro-mobile .bleu{
+color:var(--blue); /* bleu défini dans :root */
+}
+
+/* Carrousel */
+.carousel{ display:block; margin-top:12px; overflow:hidden; max-height: 247px;}
+.carousel-track{
+display:flex;
+transition: transform 2s ease-in-out; /* transition douce */
+animation: carouselAuto 30s infinite; /* cycle auto */
+}
+.carousel-slide{ min-width:100%; box-sizing:border-box; }
+.carousel-slide img{ width:100%; height:auto; display:block; object-fit:cover; }
+
+
+/* On retire les flèches */
+.carousel-btn{ display:none !important; }
+
+/* Texte explicatif sous le carrousel */
+.carousel-caption{
+  display: block;
+margin-top: 14px;
+font: italic 700 16px/1.5 "Gabriola", serif;
+color:#111;
+text-align:center;
+padding: 0 12px;
+}
+.carousel-caption a{ color:var(--blue); }
+
+
+/* Animation auto-défilement */
+@keyframes carouselAuto {
+0%, 20% { transform: translateX(0); }
+33%, 53% { transform: translateX(-100%); }
+66%, 86% { transform: translateX(-200%); }
+100% { transform: translateX(0); }
+}
+
+  /* FIGURE / CAPTION */
+  .center-figure{ margin:0 0 16px; overflow:visible; box-shadow:none; }
+  .center-figure img{ border-radius:0; }
+  .center-caption{
+    position:static; transform:none; width:100%;
+    background:#fff; padding:12px 14px; margin-top:8px;
+    font: italic 700 18px/1.5 "Gabriola", serif;
+    color:#111; text-align:center;
+    box-shadow:none; border-radius:0;
+  }
+
+  /* FOOTER */
+  .footer-container{ width:100%; padding:0; gap:0px; flex-direction:column; text-align:center; }
+  .footer-col{ width:100%; }
+}

@@ -1,0 +1,272 @@
+/* ============================
+   PAGE FACTURE ÉLECTRONIQUE
+   ============================ */
+
+.facture-page {
+  font-family: "EB Garamond", serif;
+  color: #273643;
+}
+
+/* -------- TITRE PRINCIPAL -------- */
+
+.facture-hero {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.facture-hero h1 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px, 2.2vw, 36px);
+}
+
+.facture-sub {
+  margin: 0;
+  font-size: 19px;
+}
+
+
+
+/* -------- GRILLE PRINCIPALE -------- */
+
+.facture-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.facture-left,
+.facture-right {
+  min-width: 0;
+}
+
+
+
+/* -------- TITRES & INTRO -------- */
+
+.facture-h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.facture-intro {
+  margin: 0 0 22px;
+  font-size: 18px;
+}
+
+.facture-h2--missions {
+text-decoration: underline;
+}
+
+.facture-h2--calendrier {
+  font-size: clamp(38px, 3.6vw, 55px);
+}
+
+.facture-h2--calendrier,
+.facture-intro {
+  margin-left: -240px;
+}
+
+.facture-right {
+  margin-top: 150px;   /* ↓ ajuste la valeur selon ce que tu veux */
+  max-width: 540px;
+}
+
+
+/* ============================
+   TIMELINE (CALENDRIER)
+   ============================ */
+
+.facture-timeline {
+  position: relative;
+  max-width: 900px;
+  margin-left: 0;           /* plus de décalage global */
+}
+
+/* Ligne de texte + flèche */
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 40px;        /* décale la ligne mais pas la grande flèche */
+  margin-bottom: 18px;
+}
+
+/* Ajustements verticaux */
+.timeline-row-top {
+  margin-top: -10px;
+}
+
+.timeline-row-bottom {
+  margin-top: -115px;
+  margin-left: -170px;  /* décale la flèche + texte ensemble */
+}
+
+/* PETITES FLÈCHES */
+.timeline-arrow.small-arrow {
+  width: 120px;              /* flèches plus grandes */
+  flex-shrink: 0;
+  margin-left: -40px;       /* elles mordent sur la grande flèche */
+}
+
+.timeline-row-top .small-arrow {
+  position: relative;
+  top: 50px;      /* ← remonte la flèche top */
+  left: 220px;     /* ← la décale vers la gauche */
+}
+
+/* GRANDE FLÈCHE */
+.timeline-middle {
+  margin: 10px 0;
+}
+
+.timeline-arrow.mid-arrow {
+  width: calc(100% + 250px); /* dépasse vers la gauche */
+  margin-left: -250px;       /* amène le bord gauche à la "barre rouge" */
+  margin-top: -80px;
+  max-width: none;
+  display: block;
+}
+
+
+
+/* -------- TEXTE TIMELINE -------- */
+
+.timeline-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.timeline-date {
+  font-weight: 700;
+}
+
+/* Le texte caché à révéler */
+.timeline-detail {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* RÉVÉLATION AU SURVOL */
+.timeline-row:hover .timeline-detail {
+  opacity: 1;
+}
+
+.timeline-row-top .timeline-text {
+    max-width: 390px;
+  position: relative;
+  top: -35px;     /* ↓ valeur à ajuster : descend le texte */
+  margin-left: 150px;
+}
+
+.timeline-row-bottom .timeline-text {
+    max-width: 550px;
+  position: relative;
+  top: 90px;     /* ↓ valeur à ajuster : descend le texte */
+}
+
+
+/* ============================
+   OBLIGATIONS (COLONNE DROITE)
+   ============================ */
+
+.facture-h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.facture-obligations {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+
+/* ============================
+   MISSIONS PROPOSÉES
+   ============================ */
+
+.facture-missions {
+  margin-top: -120px;
+   margin-left: 520px;      /* ← pousse vers la droite */
+}
+
+.facture-missions-list {
+  margin: 14px 0 18px;
+  padding-left: 50px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+
+/* -------- CONTACT FINAL -------- */
+
+.facture-contact {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  color: #112983;
+}
+
+.facture-contact span {
+  font-weight: 700;
+}
+.facture-contact a {
+  text-decoration: underline;   /* soulignement simple */
+  color: inherit;               /* même couleur que le texte */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media (max-width: 960px) {
+  .facture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .facture-timeline {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .facture-hero {
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+
+  .facture-grid {
+    gap: 28px;
+  }
+
+  .timeline-arrow.mid-arrow {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .timeline-row {
+    margin-left: 20px;
+  }
+
+  .timeline-arrow.small-arrow {
+    width: 60px;
+    margin-left: -10px;
+  }
+}
