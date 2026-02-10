@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Cabinet Carré</title>
+  <link rel="stylesheet" href="./styles/style2.css">
+  <link rel="stylesheet" href="./styles/style_legal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+<nav class="navbar">
+  <div class="navbar-container">
+  <div class="logo">
+    <img src="./images/logo.png" alt="Cabinet Carré" />
+  </div>
+  
+    <!-- Image localisation + texte -->
+<div class="location">
+  <a href="./contact.php">
+    <img src="./images/localisation.png" alt="Localisation">
+    <span>Villenoy</span>
+  </a>
+
+</div>
+
+  <!-- Bouton hamburger -->
+  <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Donne un id pour aria-controls -->
+  <ul class="nav-links" id="mobileMenu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="cabinet.html">Le cabinet</a></li>
+    <li><a href="competences.html">Nos compétences</a></li>
+    <li><a href="contact.php">Contact</a></li>
+    <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+  </ul>
+</div>
+
+<!-- Overlay pour fermer en cliquant à l'extérieur -->
+<div class="nav-overlay" hidden></div>
+
+</nav>
+  </header>
+
+  <!-- Contenu principal -->
+<main class="legal">
+  <div class="legal-page">
+    <div class="legal-container">
+
+      <!-- En-tête -->
+      <header class="legal-header">
+        <h1 class="legal-title">Politique de confidentialité</h1>
+        <p class="legal-subtitle">Cabinet Carré Expertise et Conseil</p>
+      </header>
+
+      <!-- Responsable du traitement -->
+      <section class="legal-section">
+        <h2>Responsable du traitement</h2>
+        <p>
+          Le responsable du traitement des données personnelles collectées via ce site est :
+          <strong>Cabinet Carré Expertise et Conseil</strong>.
+        </p>
+        <div class="legal-inline">
+          <p>
+            <span class="legal-key">Adresse :</span>
+            13 Rue Jean-Pierre Plicque, 77124 Villenoy
+          </p>
+          <p>
+            <span class="legal-key">Email :</span>
+            <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Données collectées -->
+      <section class="legal-section">
+        <h2>Données collectées</h2>
+        <p>
+          Les seules données personnelles collectées via ce site le sont par l’intermédiaire
+          du formulaire de contact.
+        </p>
+        <ul>
+          <li>Nom et prénom (si renseignés)</li>
+          <li>Adresse email</li>
+          <li>Numéro de téléphone (si renseigné)</li>
+          <li>Contenu du message</li>
+        </ul>
+      </section>
+
+      <!-- Finalités et base légale -->
+      <section class="legal-section">
+        <h2>Finalités et base légale</h2>
+        <p>Les données collectées sont utilisées uniquement pour :</p>
+        <ul>
+          <li>
+            Répondre aux demandes envoyées via le formulaire de contact  
+            <span class="muted">(base légale : intérêt légitime ou mesures précontractuelles)</span>
+          </li>
+          <li>
+            Assurer la sécurité et le bon fonctionnement du site  
+            <span class="muted">(base légale : intérêt légitime)</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Fonctionnement du formulaire -->
+      <section class="legal-section">
+        <h2>Fonctionnement du formulaire de contact</h2>
+        <p>
+          Les données saisies dans le formulaire de contact ne sont pas stockées sur le site.
+        </p>
+        <p>
+          Elles sont transmises directement par email au Cabinet Carré Expertise et Conseil
+          via un protocole PHP, puis reçues dans la messagerie professionnelle du cabinet.
+        </p>
+      </section>
+
+      <!-- Durée de conservation -->
+      <section class="legal-section">
+        <h2>Durée de conservation des données</h2>
+        <p>
+          Les données transmises via le formulaire de contact sont conservées uniquement
+          dans la messagerie professionnelle du Cabinet Carré Expertise et Conseil.
+        </p>
+        <p>
+          Elles sont conservées pendant la durée nécessaire au traitement de la demande,
+          puis supprimées ou archivées conformément aux obligations légales applicables.
+        </p>
+      </section>
+
+      <!-- Destinataires -->
+      <section class="legal-section">
+        <h2>Destinataires des données</h2>
+        <p>
+          Les données personnelles sont destinées exclusivement aux personnes habilitées
+          au sein du Cabinet Carré Expertise et Conseil.
+        </p>
+        <p class="legal-note">
+          Elles ne sont ni vendues, ni louées, ni cédées à des tiers.
+        </p>
+      </section>
+
+      <!-- Hébergement -->
+      <section class="legal-section">
+        <h2>Hébergement</h2>
+        <p>
+          Le site est hébergé par <strong>o2switch</strong>,  
+          Chemin des Pardiaux, 63000 Clermont-Ferrand, France.
+        </p>
+      </section>
+
+      <!-- Transferts hors UE -->
+      <section class="legal-section">
+        <h2>Transferts hors Union européenne</h2>
+        <p>
+          Aucune donnée personnelle n’est volontairement transférée en dehors de l’Union européenne.
+        </p>
+        <p>
+          Si un transfert devait exceptionnellement avoir lieu, celui-ci serait encadré par
+          des garanties conformes au Règlement Général sur la Protection des Données (RGPD).
+        </p>
+      </section>
+
+      <!-- Sécurité -->
+      <section class="legal-section">
+        <h2>Sécurité des données</h2>
+        <p>
+          Des mesures techniques et organisationnelles raisonnables sont mises en œuvre
+          afin de protéger les données personnelles contre toute perte, altération ou accès non autorisé.
+        </p>
+        <p class="legal-note">
+          Aucune méthode de transmission ou de stockage n’étant totalement sécurisée,
+          une sécurité absolue ne peut toutefois être garantie.
+        </p>
+      </section>
+
+      <!-- Droits -->
+      <section class="legal-section">
+        <h2>Droits des utilisateurs</h2>
+        <p>
+          Conformément au RGPD, vous disposez des droits suivants :
+        </p>
+        <ul>
+          <li>Droit d’accès</li>
+          <li>Droit de rectification</li>
+          <li>Droit d’effacement</li>
+          <li>Droit d’opposition</li>
+          <li>Droit de limitation du traitement</li>
+          <li>Droit à la portabilité des données (selon les cas)</li>
+        </ul>
+        <p>
+          Pour exercer vos droits, vous pouvez contacter :
+          <strong>
+            <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a>
+          </strong>
+        </p>
+      </section>
+
+      <!-- CNIL -->
+      <section class="legal-section">
+        <h2>Réclamation auprès de la CNIL</h2>
+        <p>
+          Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés,
+          vous pouvez adresser une réclamation à la Commission Nationale de l’Informatique
+          et des Libertés (CNIL).
+        </p>
+      </section>
+
+      <!-- Cookies -->
+      <section class="legal-section">
+        <h2>Cookies</h2>
+        <p>
+          Ce site n’utilise aucun cookie de mesure d’audience ou de suivi publicitaire.
+        </p>
+        <p>
+          Des cookies strictement nécessaires au bon fonctionnement du site peuvent être utilisés
+          (notamment pour des raisons de sécurité).
+        </p>
+      </section>
+
+      <!-- Mise à jour -->
+      <section class="legal-section">
+        <h2>Mise à jour de la politique</h2>
+        <p>
+          La présente politique de confidentialité peut être modifiée à tout moment,
+          notamment en cas d’évolution du site ou du cadre légal.
+        </p>
+        <p class="legal-note">
+          Date de dernière mise à jour : <strong>08/02/2026</strong>
+        </p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Cabinet d’expert comptable</h4>
+        <p><a href="politique.html">Politique de confidentialité</a></p>
+        <p><a href="mention-legale.html">Mention légale</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email : <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
+        <p>Téléphone : 01 75 17 76 37</p>
+        <p>Adresse : 13 Rue Jean-Pierre Plicque, 77124 Villenoy</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+    </div>
+  </footer>
+  <script src="./script/script.js"></script>
+</body>
+</html>

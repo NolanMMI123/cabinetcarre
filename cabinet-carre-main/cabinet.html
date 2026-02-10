@@ -8,17 +8,21 @@
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+  <!-- Navbar -->
+  <header>
 <nav class="navbar">
   <div class="navbar-container">
-    <div class="logo">
-      <img src="./images/logo.png" alt="Cabinet Carré">
-    </div>
-
+  <div class="logo">
+    <img src="./images/logo.png" alt="Cabinet Carré" />
+  </div>
+  
     <!-- Image localisation + texte -->
 <div class="location">
-<img src="./images/localisation.png" alt="Localisation">
-<span>Villenoy</span>
+  <a href="./contact.php">
+    <img src="./images/localisation.png" alt="Localisation">
+    <span>Villenoy</span>
+  </a>
+
 </div>
 
   <!-- Bouton hamburger -->
@@ -34,9 +38,13 @@
     <li><a href="contact.php">Contact</a></li>
     <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
   </ul>
-  </div>
-  <div class="nav-overlay"></div>
+</div>
+
+<!-- Overlay pour fermer en cliquant à l'extérieur -->
+<div class="nav-overlay" hidden></div>
+
 </nav>
+  </header>
 
 
 <!-- ===== SECTION 1 : Hero "Le cabinet" ===== -->
@@ -174,7 +182,7 @@
 <!-- ===== SECTION 4 : Savoir-faire & secteurs ===== -->
 <section class="secteurs" id="savoir-faire">
   <h2 class="secteurs-title">Des savoir-faire multidisciplinaires et des spécialisations sectorielles</h2>
-  <p class="secteurs-lead">Le Cabinet <span class="bleu">Carré Expertise et Conseil</span> intervient dans tous les secteurs d’activité.</p>
+  <p class="secteurs-lead">Le Cabinet Carré Expertise et Conseil intervient dans tous les secteurs d’activité.</p>
   <p class="secteurs-lead2">Nous avons développé des compétences particulières dans les domaines suivants :</p>
 
 <div class="secteurs-ligne1">
@@ -226,17 +234,17 @@
   <div class="divider"></div>
   <div class="equipe-grid">
     <article class="membre">
-      <img src="./images/avatar_frederique.png" alt="Frédérique Carré">
+      <img src="./images/avatar_frederique.jpg" alt="Frédérique Carré">
       <h3>Frédérique Carré</h3>
       <p>Experte-comptable</p>
     </article>
     <article class="membre">
-      <img src="./images/avatar_marie.png" alt="Marie Saulnier">
+      <img src="./images/avatar_marie.jpg" alt="Marie Saulnier">
       <h3>Marie Saulnier</h3>
       <p>Associée</p>
     </article>
     <article class="membre">
-      <img src="./images/avatar_adeline.png" alt="Adeline Beaubie">
+      <img src="./images/avatar_adeline.jpg" alt="Adeline Beaubie">
       <h3>Adeline Beaubie</h3>
       <p>Collaboratrice</p>
     </article>
@@ -268,8 +276,8 @@
     <div class="footer-container">
       <div class="footer-col">
         <h4>Cabinet d’expert comptable</h4>
-        <p><a href="#">Politique de confidentialité</a></p>
-        <p><a href="#">Mention légale</a></p>
+        <p><a href="politique.html">Politique de confidentialité</a></p>
+        <p><a href="mention-legale.html">Mention légale</a></p>
       </div>
 
       <div class="footer-col">

@@ -7,6 +7,17 @@
   color: #273643;
 }
 
+/* Wrap spécifique à la page facture */
+.facture-main{
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+
+  /* padding plus raisonnable => ne décale plus tout à droite */
+  padding-inline: clamp(12px, 1.5vw, 24px);
+  padding-block: clamp(20px, 3vw, 50px);
+}
+
 /* -------- TITRE PRINCIPAL -------- */
 
 .facture-hero {
@@ -65,11 +76,6 @@ text-decoration: underline;
 
 .facture-h2--calendrier {
   font-size: clamp(38px, 3.6vw, 55px);
-}
-
-.facture-h2--calendrier,
-.facture-intro {
-  margin-left: -240px;
 }
 
 .facture-right {
@@ -196,11 +202,6 @@ text-decoration: underline;
    MISSIONS PROPOSÉES
    ============================ */
 
-.facture-missions {
-  margin-top: -120px;
-   margin-left: 520px;      /* ← pousse vers la droite */
-}
-
 .facture-missions-list {
   margin: 14px 0 18px;
   padding-left: 50px;
@@ -233,40 +234,441 @@ text-decoration: underline;
 
 
 /* ============================
-   RESPONSIVE
+   RESPONSIVE FIX (MAIN)
    ============================ */
 
-@media (max-width: 960px) {
-  .facture-grid {
-    grid-template-columns: 1fr;
+/* 1) Tablette : on empile et on annule les gros décalages */
+
+
+/* 2) Mobile : on simplifie encore + meilleure lisibilité */
+@media (max-width: 720px) {
+
+  .facture-sub{
+    font-size: 16px;
   }
 
-  .facture-timeline {
-    margin-left: 0;
+  /* Sur mobile : texte + flèche en colonne, plus stable */
+  .timeline-row{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .timeline-arrow.small-arrow{
+    width: 70px;
+  }
+
+  /* Sur mobile (pas de hover) : on affiche le détail direct */
+  .timeline-detail{
+    opacity: 1;
+    transition: none;
+  }
+
+  /* Liste missions : padding moins violent */
+  .facture-missions-list{
+    padding-left: 22px;
   }
 }
 
-@media (max-width: 720px) {
-  .facture-hero {
-    margin-top: 28px;
-    margin-bottom: 28px;
+/* 3) Très petit écran */
+@media (max-width: 480px){
+  .facture-h2{
+    font-size: 24px;
   }
 
-  .facture-grid {
+  .facture-h2--calendrier{
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .timeline-text{
+    font-size: 15px;
+  }
+}
+
+/* ============================
+   TIMELINE EN 1 SEULE IMAGE
+   ============================ */
+
+.facture-timeline--global{
+  display: grid;
+  grid-template-columns: auto 1fr; /* la colonne image s’adapte à l’image */
+  grid-template-rows: auto auto;
+  column-gap: 18px;
+  row-gap: 18px;
+
+  /* augmente la place globale sur desktop */
+  max-width: 780px;
+}
+
+/* Desktop: taille pilotée par la largeur, pas par la hauteur */
+.timeline-global-img{
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  width: clamp(320px, 26vw, 520px); /* <-- règle principale desktop */
+  height: auto;                     /* <-- IMPORTANT */
+  object-fit: contain;
+  display: block;
+  align-self: center;               /* centre verticalement par rapport aux textes */
+}
+
+
+/* Les 2 blocs texte restent propres, dans le flux */
+.timeline-item{
+  margin: 0;
+  max-width: 360px; /* optionnel : limite la largeur du texte */
+}
+
+.timeline-item--2027{
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+}
+
+.timeline-item--2026{
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .facture-timeline--global{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    max-width: 100%;
+  }
+
+  .timeline-global-img{
+    grid-column: 1;
+    grid-row: 1;
+    height: auto;
+  }
+
+  .timeline-item--2027{
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    max-width: none;
+  }
+
+  .timeline-item--2026{
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    max-width: none;
+  }
+}
+
+
+/* Timeline : texte au-dessus, flèche, texte en-dessous */
+.facture-timeline--stack{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  row-gap: 22px;
+}
+
+/* place le texte 2027 tout en haut */
+.facture-timeline--stack .timeline-top{
+  grid-row: 1;
+  margin: 0;
+}
+
+/* place l'image au milieu */
+.facture-timeline--stack .timeline-global-img{
+  grid-row: 2;
+  width: min(100%, 1050px);
+  height: auto;
+  display: block;
+}
+
+/* place le texte 2026 en bas */
+.facture-timeline--stack .timeline-bottom{
+  grid-row: 3;
+  margin: 0;
+}
+
+/* 2027 : reste à droite */
+.facture-timeline--stack .timeline-top{
+  justify-self: end;   /* le bloc reste à droite */
+  text-align: left;    /* le texte s'aligne à gauche */
+  max-width: 380px;
+}
+
+/* 2026 : plus à gauche */
+.facture-timeline--stack .timeline-bottom{
+  justify-self: start;
+  margin-left: 18%;
+  transform: translateY(clamp(-50px, -3vw, -20px));
+  max-width: 440px;
+}
+
+/* Par défaut on cache le détail */
+.facture-timeline--stack .timeline-detail{
+  opacity: 0;
+  max-height: 0;
+  transition: opacity .2s ease, max-height .2s ease;
+}
+
+/* Quand tu survoles le bloc texte, on affiche le détail */
+.facture-timeline--stack .timeline-top:hover .timeline-detail,
+.facture-timeline--stack .timeline-bottom:hover .timeline-detail{
+  opacity: 1;
+  max-height: 200px; /* suffisamment grand pour ton texte */
+}
+
+
+:root{
+  /* Axe où commence la colonne missions = col de la flèche */
+  --axe-col-fleche: clamp(620px, 62vw, 920px);
+
+  /* Longueur flèche (déjà utilisée) */
+  --fleche-l: min(100%, calc(var(--axe-col-fleche) - 40px));
+
+  /* Décalage horizontal des textes (ils “suivent” la flèche) */
+  --txt-follow: clamp(0px, 6vw, 110px);
+
+    /* écart supplémentaire entre les deux textes */
+  --offset-2027: clamp(40px, 6vw, 120px);
+  --offset-2026: clamp(60px, 6vw, 140px); /* plus à gauche */
+}
+
+/* Flèche : on limite sa largeur pour que son "col" reste au bon axe */
+.facture-timeline--stack .timeline-global-img{
+  width: min(100%, calc(var(--axe-col-fleche) - 40px));
+}
+
+.facture-missions{
+  /* on annule tout ce qui pousse trop */
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  transform: none !important;
+
+  /* largeur du bloc (évite d'empiéter la sidebar) */
+  width: min(520px, 100%);
+  
+  /* on le décale vers la gauche par rapport au bord droit */
+  padding-right: 0;
+  translate: clamp(-220px, -18vw, -120px);
+  margin-top: -240px;
+}
+
+/* ============================
+   RESPONSIVE – bloc missions
+   ============================ */
+
+/* Tablette/desktop moyen : on réduit les décalages */
+@media (max-width: 1200px){
+  .facture-missions{
+    translate: clamp(-140px, -10vw, -60px);
+    margin-top: -160px;
+    width: min(520px, 100%);
+  }
+}
+
+/* Tablette : on remet dans le flux (plus de "positionnement desktop") */
+@media (max-width: 900px){
+  .facture-missions{
+    translate: 0;
+    margin-top: 32px;     /* espace normal */
+    margin-left: 0 !important;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Mobile : on garde simple et lisible */
+@media (max-width: 600px){
+  .facture-missions{
+    margin-top: 24px;
+  }
+}
+
+
+/* =====================================================
+   PAGE FACTURE UNIQUEMENT (menu avant le main)
+   Replier submenu + note sous 1800px, afficher au hover
+   ===================================================== */
+@media (max-width: 1800px){
+
+  /* Scope uniquement si la page contient <main class="facture-page"> */
+  body:has(main.facture-page) .menu-fixed .submenu,
+  body:has(main.facture-page) .menu-fixed .menu-note{
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+
+    pointer-events: none;
+    transform: translateX(8px);
+
+    transition:
+      opacity .18s ease,
+      transform .18s ease,
+      max-height .18s ease,
+      visibility .18s ease;
+  }
+
+  /* Réapparition au survol OU navigation clavier */
+  body:has(main.facture-page) .menu-fixed:hover .submenu,
+  body:has(main.facture-page) .menu-fixed:hover .menu-note,
+  body:has(main.facture-page) .menu-fixed:focus-within .submenu,
+  body:has(main.facture-page) .menu-fixed:focus-within .menu-note{
+    opacity: 1;
+    visibility: visible;
+    max-height: 1000px;
+    overflow: visible;
+
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+}
+
+
+@media (max-width: 1360px) {
+
+      .facture-missions{
+    translate: clamp(-40px, -4vw, 0px);
+  }
+
+}
+
+
+/* ============================
+   Timeline – mobile / tablette
+   Texte toujours visible
+   ============================ */
+@media (max-width: 1200px){
+
+  .facture-timeline--stack .timeline-detail{
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: none !important;
+    overflow: visible !important;
+    pointer-events: auto;
+  }
+
+  /* on supprime l'effet hover */
+  .facture-timeline--stack .timeline-top:hover .timeline-detail,
+  .facture-timeline--stack .timeline-bottom:hover .timeline-detail{
+    opacity: 1;
+  }
+}
+
+/* ============================
+   Responsive < 980px
+   - Timeline 100%
+   - Obligations sous 2026
+   ============================ */
+@media (max-width: 980px){
+
+  /* 1 colonne : tout s'empile */
+  .facture-grid{
+    grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .timeline-arrow.mid-arrow {
+  /* Ordre : timeline (left) puis obligations (right) */
+  .facture-left{ order: 1; }
+  .facture-right{ order: 2; }
+
+  /* Timeline: prend toute la largeur */
+  .facture-timeline{
+    max-width: none;
     width: 100%;
+  }
+
+  /* On neutralise les gros décalages desktop de la timeline */
+  .timeline-row{
     margin-left: 0;
   }
 
-  .timeline-row {
-    margin-left: 20px;
+  .timeline-row-top,
+  .timeline-row-bottom{
+    margin-top: 0;
+    margin-left: 0;
   }
 
-  .timeline-arrow.small-arrow {
-    width: 60px;
-    margin-left: -10px;
+  .timeline-row-top .small-arrow{
+    position: static;
+    top: auto;
+    left: auto;
   }
+
+  .timeline-arrow.small-arrow{
+    width: 70px;
+    margin-left: 0;
+  }
+
+  .timeline-arrow.mid-arrow{
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .timeline-row-top .timeline-text,
+  .timeline-row-bottom .timeline-text{
+    position: static;
+    top: auto;
+    margin-left: 0;
+    max-width: none;
+  }
+
+  /* Obligations : on retire ton gros margin-top desktop */
+  .facture-right{
+    margin-top: 0;
+    max-width: none;
+  }
+
+    .facture-missions{
+    translate: 0 !important;
+    margin-top: 24px;              /* au lieu de -240px */
+    margin-left: 0 !important;
+    width: 100%;
+    max-width: none;
+  }
+
+  
+  :root{
+    --offset-2027: clamp(-40px, -3vw, -10px);
+    --offset-2026: clamp(-80px, -6vw, -30px);
+  }
+}
+
+/* Flèche: une seule source de vérité */
+.facture-timeline--stack .timeline-global-img{
+  width: var(--fleche-l);
+}
+
+/* 2027 : calé à droite MAIS on le ramène vers la gauche en fonction de l'écran */
+.facture-timeline--stack .timeline-top{
+  justify-self: end;
+  transform: translateX(calc(-1 * var(--txt-follow)));
+}
+
+/* 2026 : pareil, mais avec son offset à gauche + follow */
+.facture-timeline--stack .timeline-bottom{
+  justify-self: start;
+  margin-left: 18%;
+  transform:
+    translateX(var(--txt-follow))
+    translateY(clamp(-50px, -3vw, -20px));
+}
+
+.facture-timeline--stack .timeline-top{
+  justify-self: end;
+  transform: translateX(
+    calc(-1 * var(--txt-follow) + var(--offset-2027))
+  );
+}
+
+.facture-timeline--stack .timeline-bottom{
+  justify-self: start;
+  margin-left: 18%;
+
+  transform:
+    translateX(calc(var(--txt-follow) - var(--offset-2026)))
+    translateY(clamp(-50px, -3vw, -20px));
 }

@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <nav class="navbar">
   <div class="navbar-container">
     <div class="logo">
-      <img src="logo.png" alt="Cabinet Carré">
+      <img src="./images/logo.png" alt="Cabinet Carré">
     </div>
 
   <!-- Bouton hamburger -->
@@ -111,8 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="footer-container">
       <div class="footer-col">
         <h4>Cabinet d’expert comptable</h4>
-        <p><a href="#">Politique de confidentialité</a></p>
-        <p><a href="#">Mention légale</a></p>
+        <p><a href="politique.html">Politique de confidentialité</a></p>
+        <p><a href="mention-legale.html">Mention légale</a></p>
       </div>
 
       <div class="footer-col">
