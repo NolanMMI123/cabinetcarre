@@ -137,7 +137,9 @@ body{font-family:"EB Garamond", serif; line-height:1.4;}
 /* =========================
    TON CSS (adapté au contexte fusionné)
    ========================= */
-body{ padding-top: 55px;}
+/* Padding sous la navbar : 100px desktop, 70px mobile (cohérent avec style2.css) */
+body.page-competences,
+body.page-complementaires { padding-top: 100px; }
 
 /* Intro texte + wrapper */
 .wrap{ max-width:1400px; margin-inline:auto; padding:clamp(20px, 4vw, 50px); }
@@ -146,15 +148,15 @@ body{ padding-top: 55px;}
 .intro{ text-align:center; font-size:clamp(18px, 2vw, 22px); margin:0 0 clamp(28px,5vw,48px); }
 .intro .sub{ color:var(--text); display:block; margin-top:.4rem; font-size:clamp(18px, 2vw, 22px); }
 
-/* Bloc central */
+/* Bloc central - position relatif à la constellation pour scale au zoom */
 .center{
   position:absolute;
   left:50%;
-  top: calc(42vh + 120px);
+  top:48%;
   transform:translate(-50%, -50%);
   text-align:center;
-  padding-inline:clamp(40px,10vw,160px);
-  z-index:10;
+  padding-inline:clamp(30px, 8%, 120px);
+  z-index:5;
   pointer-events: none;
 }
 .title{
@@ -170,18 +172,24 @@ body{ padding-top: 55px;}
   white-space:nowrap;
 }
 .logo{
-  width:min(170px, 26vw);
-  height:auto;
-  display:block;
-  margin-inline:auto;
+  width: min(120px, 16%);
+  height: auto;
+  display: block;
+  margin-inline: auto;
 }
 
-/* Bulles */
+/* Section constellation - conteneur positionné pour enfants en % (responsive au zoom) */
+.constellation {
+  position: relative;
+  min-height: clamp(420px, 65vh, 600px);
+}
+
+/* Bulles - tailles en % du conteneur pour scale au zoom */
 .bubble,
 .bubble___link{
   position:absolute;
-  width: clamp(130px, 16vw, 190px);
-  height: clamp(130px, 16vw, 190px);
+  width: clamp(130px, 18%, 220px);
+  height: clamp(130px, 18%, 220px);
   border-radius:50%;
   background:#6b8897;
   color:#122330;
@@ -245,16 +253,16 @@ body{ padding-top: 55px;}
 .bubble:hover .bubble__panel,
 .bubble:focus-within .bubble__panel{ opacity:1; }
 
-/* Placement */
-.b-top-left{ left: calc(50vw - 24vw ); top:  calc(50vh - 22vh + 130px); transform: translate(-50%, -50%); }
-.b-top-right{ left: calc(50vw + 24vw); top:  calc(50vh - 22vh + 130px); transform: translate(-50%, -50%); }
-.b-bottom-left{ left: calc(50vw - 24vw); top:  calc(50vh + 7vh + 130px); transform: translate(-50%, -50%); }
-.b-bottom-right{ left: calc(50vw + 24vw); top:  calc(50vh + 7vh + 130px); transform: translate(-50%, -50%); }
-.b-bottom-mid{ left: 50vw; top:  calc(50vh + 22vh + 130px); transform: translate(-50%, -50%); }
+/* Placement en % du conteneur constellation = responsive au zoom */
+.b-top-left{ left: 25%; top: 20%; transform: translate(-50%, -50%); }
+.b-top-right{ left: 75%; top: 20%; transform: translate(-50%, -50%); }
+.b-bottom-left{ left: 25%; top: 72%; transform: translate(-50%, -50%); }
+.b-bottom-right{ left: 75%; top: 72%; transform: translate(-50%, -50%); }
+.b-bottom-mid{ left: 50%; top: 88%; transform: translate(-50%, -50%); }
 
-/* Footer spacing */
+/* Footer spacing - réduit pour moins d'espace vide */
 body.page-competences .footer,
-body.page-complementaires .footer { margin-top: 62vh; }
+body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
 
 
 /* Menu fixe */
@@ -332,30 +340,122 @@ body.page-complementaires .footer { margin-top: 62vh; }
   box-shadow: none;
 }
 
-/* Responsive: on masque le menu sur mobile si besoin */
+/* Responsive - garde la même disposition, scale fluide uniquement */
+@media (max-width: 1200px) {
+  .wrap { padding: clamp(16px, 3vw, 32px); }
+  .menu-fixed { right: 12px; width: 200px; }
+  .menu-fixed > a,
+  .menu-fixed .submenu a { width: 180px; max-width: 180px; font-size: 14px; padding: 6px 10px; }
+  .menu-fixed .submenu a { font-size: 13px; }
+  .menu-note { font-size: 16px; }
+}
+
 @media (max-width: 900px) {
-  .menu-fixed { display: none; }
+  body.page-competences,
+  body.page-complementaires { padding-top: 70px; }
+  /* Menu mobile : intégré dans le flux, sous le titre */
+  .menu-fixed {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+  .menu-fixed > a,
+  .menu-fixed .submenu a {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+  .menu-fixed .submenu {
+    align-items: stretch;
+    border-right: none;
+    border-top: 1px solid rgba(14, 42, 58, 0.15);
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  .menu-note {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 0 8px;
+  }
 }
 
-/* Mobile */
-@media (max-width: 720px){
-  .center{ position:static; transform:none; margin-bottom:20px; }
-  .bubble{ position:static; width:clamp(150px, 45vw, 220px); height:clamp(150px, 45vw, 220px); }
-  .constellation{ display:flex; flex-direction:column; gap:20px; align-items:center; }
-  .bubble__panel{ opacity:0; }
-  .bubble__front{ opacity:1; }
+/* Très petits écrans - menu compact */
+@media (max-width: 480px) {
+  .menu-fixed {
+    padding: 12px 10px;
+  }
+  .menu-fixed > a,
+  .menu-fixed .submenu a {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .menu-note { font-size: 14px; }
 }
 
-/* Repositionnement complémentaire */
-#complementaires .b-top-left     { left: calc(50% - 24vw); }
-#complementaires .b-top-right    { left: calc(50% + 24vw); }
-#complementaires .b-bottom-left  { left: calc(50% - 24vw); }
-#complementaires .b-bottom-right { left: calc(50% + 24vw); }
-#complementaires .b-bottom-mid   { left: 50%; }
-
-#traditionnelles {
-  scroll-margin-top: 148px; /* ajuste la hauteur ici */
+@media (max-width: 900px) {
+  .wrap { padding: clamp(12px, 2.5vw, 24px); }
+  .competences-title { font-size: clamp(24px, 5vw, 38px); }
+  .intro { font-size: clamp(16px, 2.2vw, 20px); margin-bottom: clamp(16px, 3vw, 28px); }
+  .intro .sub { font-size: clamp(15px, 2vw, 18px); }
+  .bubble, .bubble___link {
+    width: clamp(110px, 18%, 170px);
+    height: clamp(110px, 18%, 170px);
+  }
+  .center { padding-inline: clamp(16px, 6%, 50px); }
+  .center .title { font-size: clamp(20px, 3vw, 28px); }
+  .center .subtitle { font-size: clamp(14px, 1.8vw, 17px); }
+  .center .logo { width: min(85px, 18%); }
+  .constellation { min-height: clamp(360px, 60vh, 500px); }
+  .bubble__front b { font-size: clamp(18px, 2.2vw, 24px); }
+  .bubble__link b { font-size: clamp(16px, 2vw, 22px); }
+  .bubble__front small, .bubble__link small { font-size: clamp(14px, 1.8vw, 17px); }
+  .bubble__panel { font-size: clamp(11px, 1.4vw, 14px); }
 }
+
+@media (max-width: 600px) {
+  body.page-competences,
+  body.page-complementaires { overflow-x: hidden; }
+  .wrap { padding: 12px 10px; }
+  .competences-title { font-size: clamp(22px, 6vw, 30px); }
+  .bubble, .bubble___link {
+    width: clamp(90px, 20%, 130px);
+    height: clamp(90px, 20%, 130px);
+  }
+  .center { padding-inline: 12px; }
+  .center .title { font-size: clamp(18px, 4.5vw, 24px); }
+  .center .subtitle { font-size: clamp(13px, 3vw, 15px); }
+  .center .logo { width: min(65px, 22%); }
+  .constellation { min-height: clamp(300px, 55vh, 420px); }
+  .bubble__front b { font-size: clamp(14px, 3.2vw, 18px); }
+  .bubble__link b { font-size: clamp(13px, 2.8vw, 16px); }
+  .bubble__front small, .bubble__link small { font-size: clamp(12px, 2.5vw, 14px); }
+  .bubble__panel { font-size: clamp(10px, 2.2vw, 12px); }
+  .bubble__panel li + li { margin-top: 0.4rem; padding-top: 0.4rem; }
+}
+
+@media (max-width: 400px) {
+  .bubble, .bubble___link {
+    width: clamp(75px, 22%, 110px);
+    height: clamp(75px, 22%, 110px);
+  }
+  .center .logo { width: min(55px, 24%); }
+}
+
+#traditionnelles,
 #complementaires {
-  scroll-margin-top: 148px;
+  scroll-margin-top: 120px;
+}
+@media (max-width: 900px) {
+  #traditionnelles,
+  #complementaires {
+    scroll-margin-top: 90px;
+  }
 }
