@@ -131,3 +131,60 @@
     padding: 0 12px;
   }
 }
+/* ============================================================
+   AJOUTS POUR LE RESPONSIVE (SANS MODIFIER L'EXISTANT)
+   ============================================================ */
+
+/* 1. Ajustements globaux pour petits écrans (< 768px) */
+@media (max-width: 768px) {
+  
+  /* L'ovale : on lui donne un peu plus de liberté sur mobile */
+  .ecf-oval {
+    width: 90%; /* Prend plus de place sur mobile */
+    height: auto; /* Laisse le padding gérer la hauteur si le texte est long */
+    aspect-ratio: 1.5 / 1; /* Garde une forme elliptique */
+    min-height: 200px;
+    border-radius: 50%;
+  }
+
+  /* La liste des 10 points : on réduit le retrait pour gagner de la place */
+  .ecf-points ol {
+    padding-left: 25px; /* Plus lisible sur petit écran */
+  }
+
+  /* Le menu fixe à droite : il ne doit plus être "fixed" sur mobile */
+  .menu-fixed {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9; /* Optionnel : léger fond pour le distinguer */
+    box-shadow: none;
+    border-left: none;
+    border-top: 2px solid #6b8897;
+  }
+
+  .menu-fixed .submenu {
+    display: grid;
+    grid-template-columns: 1fr; /* Les liens s'empilent */
+    gap: 10px;
+  }
+}
+
+/* 2. Très petits écrans (< 480px) */
+@media (max-width: 480px) {
+  .ecf-subtitle {
+    font-size: 20px; /* On réduit légèrement le sous-titre */
+  }
+
+  .ecf-oval h1, 
+  .ecf-acronym {
+    font-size: 22px; /* Sécurité pour éviter les coupures de mots */
+  }
+  
+  .ecf-intro, .ecf-points, .ecf-details {
+    font-size: 17px; /* Améliore la densité du texte */
+  }
+}

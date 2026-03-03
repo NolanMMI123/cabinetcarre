@@ -129,3 +129,60 @@
     display: none;  /* tu peux l’enlever sur mobile si ça gêne la lisibilité */
   }
 }
+
+/* ============================================================
+   AJOUTS RESPONSIVE POUR GESTION & FINANCE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* On ajuste l'ovale pour qu'il ne soit pas trop plat */
+  .gest-oval {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1.6 / 1; /* Maintient une belle forme d'ellipse */
+    min-height: 160px;
+    padding: 20px;
+  }
+
+  .gest-oval h1 {
+    font-size: clamp(24px, 6vw, 32px); /* Taille plus adaptée aux mobiles */
+  }
+
+  /* Ajustement des textes pour la lisibilité mobile */
+  .gest-lead {
+    font-size: 19px;
+    padding: 0 10px;
+    line-height: 1.4;
+  }
+
+  .gest-item-title {
+    font-size: 19px;
+  }
+
+  .gest-item-text {
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 0 5px;
+  }
+
+  .gest-separator {
+    margin: 12px 0; /* On réduit un peu l'espace des points séparateurs */
+  }
+
+  .gest-final {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+}
+
+/* Correction spécifique pour les très petits écrans (< 400px) */
+@media (max-width: 400px) {
+  .gest-oval {
+    width: 100%;
+    aspect-ratio: 1.4 / 1;
+  }
+  
+  .gest-hero {
+    padding-top: 20px; /* Moins de vide en haut sur petit écran */
+  }
+}

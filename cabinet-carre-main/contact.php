@@ -1,35 +1,45 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Traitement du formulaire (POST) + message de retour (GET)
+$feedback = null;
+$feedback_type = null;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Nettoyage des données
-    $name    = htmlspecialchars(trim($_POST['name']));
-    $email   = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $message = htmlspecialchars(trim($_POST['message']));
+    $name    = htmlspecialchars(trim($_POST["name"] ?? ""));
+    $email   = filter_var(trim($_POST["email"] ?? ""), FILTER_SANITIZE_EMAIL);
+    $message = htmlspecialchars(trim($_POST["message"] ?? ""));
 
-    // Vérification simple
-    if (empty($name) || empty($email) || empty($message)) {
-        die("Tous les champs sont obligatoires.");
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Adresse e-mail invalide.");
-    }
-
-    // Paramètres du mail
-    $to      = "contact@carreexpertise.fr"; // <-- Mets ici ton adresse
-    $subject = "Nouveau message depuis le formulaire de contact";
-    $body    = "Nom : $name\nEmail : $email\n\nMessage :\n$message";
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    // Envoi du mail
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Message envoyé avec succès !";
+    // Vérifications
+    if ($name === "" || $email === "" || $message === "") {
+        $feedback = "Tous les champs sont obligatoires.";
+        $feedback_type = "error";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $feedback = "Adresse e-mail invalide.";
+        $feedback_type = "error";
     } else {
-        echo "Erreur lors de l'envoi du message.";
+        // Paramètres du mail
+        $to      = "contact@carreexpertise.fr";
+        $subject = "Nouveau message depuis le formulaire de contact";
+        $body    = "Nom : $name\nEmail : $email\n\nMessage :\n$message";
+        $headers = "From: $email\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        if (@mail($to, $subject, $body, $headers)) {
+            // Redirect pour éviter le renvoi au refresh
+            header("Location: contact.php?sent=1");
+            exit;
+        } else {
+            $feedback = "Erreur lors de l'envoi du message. Réessaie plus tard ou contacte-nous directement par e-mail.";
+            $feedback_type = "error";
+        }
     }
 } else {
-    echo "Méthode de requête invalide.";
+    // Message de succès après redirection
+    if (isset($_GET["sent"]) && $_GET["sent"] === "1") {
+        $feedback = "Message envoyé avec succès !";
+        $feedback_type = "success";
+    }
 }
 ?>
 
@@ -40,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Cabinet Carré</title>
   <link rel="stylesheet" href="./styles/style2.css">
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 </head>
 <body>
 
@@ -61,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <li><a href="cabinet.html">Le cabinet</a></li>
     <li><a href="competences.html">Nos compétences</a></li>
     <li><a href="contact.php" class="active">Contact</a></li>
-    <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+    <li><a href="news.php">Newsletter</a></li>
   </ul>
   </div>
   <div class="nav-overlay"></div>
@@ -72,6 +83,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- Titre centré globalement -->
   <h2 class="contact-title">Contact</h2>
 
+  <?php if ($feedback): ?>
+    <div class="contact-feedback <?php echo $feedback_type === "success" ? "is-success" : "is-error"; ?>">
+      <?php echo htmlspecialchars($feedback, ENT_QUOTES, "UTF-8"); ?>
+    </div>
+  <?php endif; ?>
+
   <div class="contact-inner">
     <div class="contact-left">
       <div class="contact-watermark"></div>
@@ -79,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3>Cabinet Carré</h3>
         <p><strong>E-mail :</strong> <a href="mailto:contact@carreexpertise.fr">contact@carreexpertise.fr</a></p>
         <p><strong>Tél :</strong> <a href="tel:+33175177637">01 75 17 76 37</a></p>
-        <p>13, rue Jean Pierre Plicque 77120 Villenoy, France</p>
+        <p>13, rue Jean-Pierre Plicque <br /> 77120 Villenoy, France</p>
       </div>
     </div>
 
@@ -112,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="footer-col">
         <h4>Cabinet d’expert comptable</h4>
         <p><a href="politique.html">Politique de confidentialité</a></p>
-        <p><a href="mention-legale.html">Mention légale</a></p>
+        <p><a href="mention-legale.html">Mentions légales</a></p>
       </div>
 
       <div class="footer-col">
@@ -124,10 +141,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+      <p>© 2026 Cabinet Carré, tous droits réservés</p>
     </div>
   </footer>
 
-<script src="./script/script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>

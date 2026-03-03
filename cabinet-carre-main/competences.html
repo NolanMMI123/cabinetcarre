@@ -6,6 +6,7 @@
   <title>Nos compétences - Cabinet Carré</title>
   <link rel="stylesheet" href="./styles/style2.css">
   <link rel="stylesheet" href="./styles/style_compétences.css">
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -55,7 +56,7 @@
     <li><a href="cabinet.html">Le cabinet</a></li>
     <li><a href="competences.html" class="active">Nos compétences</a></li>
     <li><a href="contact.php">Contact</a></li>
-    <li><a href="https://www.carre-expertise.fr/newsletter">Newsletter</a></li>
+    <li><a href="news.php">Newsletter</a></li>
   </ul>
 </div>
 
@@ -67,8 +68,8 @@
 
     <!-- ===== MENU FIXE À DROITE ===== -->
 <div class="menu-fixed">
-  <a href="/competences.html" class="active">Missions traditionnelles</a>
-  <a href="/competences_complementaires.html">Missions complémentaires</a>
+  <a href="competences.html" class="active">Missions traditionnelles</a>
+  <a href="competences_complementaires.html">Missions complémentaires</a>
 
   <!-- Sous-liens cliquables -->
   <div class="submenu">
@@ -166,7 +167,7 @@
       <div class="footer-col">
         <h4>Cabinet d’expert comptable</h4>
         <p><a href="politique.html">Politique de confidentialité</a></p>
-        <p><a href="mention-legale.html">Mention légale</a></p>
+        <p><a href="mention-legale.html">Mentions légales</a></p>
       </div>
 
       <div class="footer-col">
@@ -178,7 +179,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Cabinet Carré, tous droits réservés</p>
+      <p>© 2026 Cabinet Carré, tous droits réservés</p>
     </div>
   </footer>
   </div><!-- /.site -->
@@ -189,6 +190,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro');
   const site  = document.querySelector('.site');
   const glyphs = Array.from(document.querySelectorAll('#intro .glyph'));
+
+  // Pas d'intro animée sur mobile (≤1300px)
+  const isMobile = window.matchMedia('(max-width: 1300px)').matches;
+  if (isMobile) {
+    body.classList.add('show-site');
+    if (intro) intro.style.display = 'none';
+    if (site) site.removeAttribute('aria-hidden');
+    return;
+  }
 
   // Sécurité : si un élément manque, on affiche direct le site
   if (!intro || !site || glyphs.length === 0) {
@@ -223,8 +233,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Quand toutes les lettres ont terminé leur animation
   glyphs.forEach(g => g.addEventListener('animationend', onAnimEnd));
 });
-</script>
 
+// Bulles mobile : clic pour afficher la liste, re-clic ou autre bulle pour fermer
+document.addEventListener('DOMContentLoaded', () => {
+  const mq = window.matchMedia('(max-width: 900px)');
+  if (!mq.matches) return;
+
+  const bubbles = document.querySelectorAll('.page-competences .constellation .bubble');
+  bubbles.forEach(bubble => {
+    bubble.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wasOpen = bubble.classList.contains('bubble--open');
+      bubbles.forEach(b => b.classList.remove('bubble--open'));
+      if (!wasOpen) bubble.classList.add('bubble--open');
+    });
+  });
+});
+</script>
+<script src="./script.js"></script>
 
 </body>
 </html>

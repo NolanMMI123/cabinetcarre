@@ -121,6 +121,16 @@ body{font-family:"EB Garamond", serif; line-height:1.4;}
 .page-competences .site{ transition:none; }
 } */
 
+/* Pas d'intro animée sur mobile/tablette (≤1300px) */
+@media (max-width: 1300px) {
+  .page-competences #intro {
+    display: none !important;
+  }
+  .page-competences .site {
+    opacity: 1 !important;
+  }
+}
+
 /* =========================
    CONTENU DU SITE (TON CODE)
    — caché au début, fade-in après l’intro
@@ -245,7 +255,7 @@ body.page-complementaires { padding-top: 100px; }
   transform:translateX(-50%); font-size:1rem;
 }
 
-/* Effet hover */
+/* Effet hover (desktop uniquement — mobile géré par .bubble--open) */
 .bubble:hover,
 .bubble:focus-within{ background:transparent; }
 .bubble:hover .bubble__front,
@@ -351,14 +361,17 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
 }
 
 @media (max-width: 900px) {
+  /* Décale le contenu pour voir Missions traditionnelles + complémentaires sous la navbar mobile */
   body.page-competences,
-  body.page-complementaires { padding-top: 70px; }
-  /* Menu mobile : intégré dans le flux, sous le titre */
+  body.page-complementaires,
+  body:has(.menu-fixed) { padding-top: 90px; }
+  /* Menu mobile : intégré dans le flux, sous la navbar */
   .menu-fixed {
     position: static;
     width: 100%;
     max-width: 100%;
     padding: 16px;
+    margin-top: 8px;
     margin-bottom: 8px;
     align-items: stretch;
     box-sizing: border-box;
@@ -401,6 +414,18 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
 }
 
 @media (max-width: 900px) {
+  /* Bulles mobile : clic pour afficher, pas hover — toggle via .bubble--open */
+  .page-competences .constellation .bubble { cursor: pointer; }
+  .page-competences .bubble:hover,
+  .page-competences .bubble:focus-within { background: #6b8897; }
+  .page-competences .bubble:not(.bubble--open):hover .bubble__front,
+  .page-competences .bubble:not(.bubble--open):focus-within .bubble__front { opacity: 1; }
+  .page-competences .bubble:not(.bubble--open):hover .bubble__panel,
+  .page-competences .bubble:not(.bubble--open):focus-within .bubble__panel { opacity: 0; }
+  .page-competences .bubble.bubble--open { background: transparent; }
+  .page-competences .bubble.bubble--open .bubble__front { opacity: 0; }
+  .page-competences .bubble.bubble--open .bubble__panel { opacity: 1; }
+
   .wrap { padding: clamp(12px, 2.5vw, 24px); }
   .competences-title { font-size: clamp(24px, 5vw, 38px); }
   .intro { font-size: clamp(16px, 2.2vw, 20px); margin-bottom: clamp(16px, 3vw, 28px); }
@@ -457,5 +482,16 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
   #traditionnelles,
   #complementaires {
     scroll-margin-top: 90px;
+  }
+}
+
+/* =====================================================
+   FACTURE – Mobile (hamburger) : cacher submenu + note
+   ===================================================== */
+@media (max-width: 1400px){
+
+  .menu-fixed .submenu,
+  .menu-fixed .menu-note{
+    display: none !important;
   }
 }

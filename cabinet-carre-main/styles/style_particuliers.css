@@ -134,3 +134,70 @@
     width: min(360px, 80vw);
   }
 }
+/* ============================================================
+   AJOUTS RESPONSIVE POUR PARTICULIERS
+   ============================================================ */
+
+@media (max-width: 900px) {
+  /* Correction : on cible la bonne classe pour le filigrane */
+  .particuliers-filigrane {
+    opacity: 0.1; /* Plus discret pour ne pas gêner la lecture */
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 1. L'ovale : Gestion du titre sur 3 lignes */
+  .part-oval {
+    width: 90%;
+    height: auto; 
+    aspect-ratio: 1.6 / 1; /* Maintient la forme ovale */
+    min-height: 180px;
+    padding: 15px;
+  }
+
+  .part-oval h1 {
+    /* Taille fluide pour que "Particuliers" ne sorte pas du cadre */
+    font-size: clamp(22px, 5vw, 30px); 
+  }
+
+  /* 2. Les questions et l'intro */
+  .part-question {
+    font-size: 19px; /* Un peu plus petit pour éviter trop de retours à la ligne */
+    padding: 0 10px;
+    line-height: 1.4;
+  }
+
+  .part-intro {
+    font-size: 17px;
+    padding: 0 10px;
+    margin: 25px auto;
+  }
+
+  /* 3. La boîte bleue centrale */
+  .part-box {
+    padding: 25px 20px; /* On réduit le padding pour gagner de la place textuelle */
+    margin-bottom: 20px;
+    border-radius: 4px; 
+  }
+  
+  .part-box p {
+    font-size: 17px;
+  }
+
+  .part-dot {
+    margin: 12px 0; /* Réduit l'espace autour du point séparateur */
+  }
+}
+
+/* Ajustements ultimes pour très petits écrans (< 400px) */
+@media (max-width: 400px) {
+  .part-oval {
+    width: 100%;
+    aspect-ratio: 1.3 / 1; /* Un peu plus haut pour contenir tout le titre */
+  }
+  
+  .part-question {
+    font-size: 18px;
+  }
+}

@@ -77,3 +77,52 @@
 .list li + li {
   border-top: 1px dotted #9ab0be;
 }
+/* ============================================================
+   AJOUTS RESPONSIVE POUR ASSISTANCE (SANS RIEN CHANGER AU DESSUS)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* On redonne une forme cohérente à l'ovale sur mobile */
+  .oval {
+    width: 85%;            /* Plus large pour ne pas étouffer le texte */
+    height: auto;          /* On laisse le padding respirer */
+    aspect-ratio: 1.6 / 1; /* Maintient la forme ellipse */
+    min-height: 180px;
+    margin-bottom: 20px;
+  }
+
+  /* Ajustement des titres dans l'ovale */
+  .oval h2 {
+    font-size: 24px;       /* Sécurité pour les petits écrans */
+  }
+
+  /* Le texte d'introduction sous l'ovale */
+  .lead {
+    min-height: auto;      /* On annule la hauteur fixe sur une seule colonne */
+    font-size: 19px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+
+  /* Optimisation de la liste */
+  .list {
+    padding: 0 15px;       /* Évite que le texte ne colle aux bords de l'écran */
+  }
+
+  .list li {
+    font-size: 17px;       /* Texte légèrement plus compact pour la lisibilité */
+    line-height: 1.5;
+  }
+}
+
+/* Ajustement pour les très petits écrans (iPhone SE, etc.) */
+@media (max-width: 400px) {
+  .oval {
+    width: 100%;
+    aspect-ratio: 1.4 / 1;
+  }
+  
+  .oval h2 {
+    font-size: 21px;
+  }
+}

@@ -672,3 +672,103 @@ text-decoration: underline;
     translateX(calc(var(--txt-follow) - var(--offset-2026)))
     translateY(clamp(-50px, -3vw, -20px));
 }
+
+/* =========================================================
+   FACTURE – RESPONSIVE GLOBAL (patch propre)
+   À coller en toute fin de style_facture.css
+   ========================================================= */
+
+/* 0) Empêche la navbar fixed de recouvrir le contenu */
+body:has(main.facture-page){
+  padding-top: 100px; /* navbar desktop */
+}
+@media (max-width: 900px){
+  body:has(main.facture-page){
+    padding-top: 90px; /* navbar mobile — espace pour voir Missions traditionnelles + complémentaires */
+  }
+}
+
+/* 1) Desktop "moyen" : on réduit les décalages avant que ça casse */
+@media (max-width: 1280px){
+
+  .facture-grid{
+    gap: 28px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+
+  /* Obligations : le margin-top 150 devient trop agressif */
+  .facture-right{
+    margin-top: 80px;
+    max-width: none;
+  }
+
+  /* Missions : on évite les gros sauts (tu gardes l'esprit mais plus stable) */
+  .facture-missions{
+    translate: clamp(-80px, -6vw, -20px);
+    margin-top: -120px;
+    width: min(560px, 100%);
+  }
+}
+
+/* 2) Point de bascule plus tôt (au lieu d'attendre 980)
+   -> tu évites le "trou" 1180-980 qui te faisait remonter/chevaucher */
+@media (max-width: 1100px){
+
+  .facture-grid{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .facture-left{ order: 1; }
+  .facture-right{ order: 2; }
+
+  /* Obligations : retour dans le flux */
+  .facture-right{
+    margin-top: 0;
+    max-width: none;
+  }
+
+  /* Missions : retour dans le flux (plus de positionnement desktop) */
+  .facture-missions{
+    translate: 0 !important;
+    margin-top: 28px;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* 3) Timeline stack : offsets trop “artistiques” -> on simplifie sur mobile */
+@media (max-width: 720px){
+
+  .facture-timeline--stack .timeline-top,
+  .facture-timeline--stack .timeline-bottom{
+    justify-self: start;
+    margin-left: 0;
+    transform: none !important;
+    max-width: none;
+  }
+
+  .facture-timeline--stack .timeline-global-img{
+    width: 100%;
+  }
+
+  .timeline-text{
+    font-size: 15px;
+  }
+}
+
+/* 4) Sécurité anti scroll horizontal (au cas où une translate dépasse) */
+body:has(main.facture-page){
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   FACTURE – Mobile (hamburger) : cacher submenu + note
+   ===================================================== */
+@media (max-width: 1400px){
+
+  body:has(main.facture-page) .menu-fixed .submenu,
+  body:has(main.facture-page) .menu-fixed .menu-note{
+    display: none !important;
+  }
+}
