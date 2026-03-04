@@ -46,7 +46,7 @@ body.page-complementaires { overflow-x: visible; }
   place-items:center;
   z-index:2;
   opacity:1;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.3s ease;
 }
 
 .page-competences #intro svg{
@@ -148,7 +148,7 @@ body.page-complementaires { overflow-x: visible; }
    ========================= */
 .page-competences .site{
   opacity:0;
-  transition: opacity 0.8s ease; /* léger délai après disparition de l’intro */
+  transition: opacity 0.3s ease; /* léger délai après disparition de l’intro */
 }
 
 /* État final déclenché par JS quand toutes les lettres ont fini */
