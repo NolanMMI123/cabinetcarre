@@ -14,6 +14,10 @@
   --dur:4000ms;
   --easing: cubic-bezier(.22,.61,.36,1);
   --gap:160ms; /* décalage entre lettres */
+
+  /* Marge visuelle autour de "Missions traditionnelles" : n’écarte que les bulles */
+  --center-padding: 7%;
+  --center-padding-bottom-mid: 4%;
 }
 
 *{box-sizing:border-box}
@@ -23,6 +27,13 @@ footer, footer * { box-sizing: content-box; }
 
 html,body{margin:0;background:#fff;color:var(--text);height:100%}
 body{font-family:"EB Garamond", serif; line-height:1.4;}
+/* Au zoom max, éviter que overflow-x:hidden (style2) ne coupe les bulles et casse le survol */
+body.page-competences,
+body.page-complementaires { overflow-x: visible; }
+.page-competences .wrap,
+.page-competences .constellation,
+.page-complementaires .wrap,
+.page-complementaires .constellation { overflow: visible; }
 
 /* =========================
    INTRO SVG PLEIN ÉCRAN
@@ -162,7 +173,7 @@ body.page-complementaires { padding-top: 100px; }
 .center{
   position:absolute;
   left:50%;
-  top:48%;
+  top:46%;
   transform:translate(-50%, -50%);
   text-align:center;
   padding-inline:clamp(30px, 8%, 120px);
@@ -198,8 +209,9 @@ body.page-complementaires { padding-top: 100px; }
 .bubble,
 .bubble___link{
   position:absolute;
-  width: clamp(130px, 18%, 220px);
-  height: clamp(130px, 18%, 220px);
+  z-index: 10; /* au-dessus du .center (z-index:5) pour que le survol fonctionne même en zoom */
+  width: clamp(142px, 20%, 240px);
+  height: clamp(142px, 20%, 240px);
   border-radius:50%;
   background:#6b8897;
   color:#122330;
@@ -207,12 +219,22 @@ body.page-complementaires { padding-top: 100px; }
   overflow:visible;
   transition: background .3s ease;
 }
+/* Zone de survol élargie pour que le hover fonctionne au zoom max (contourne les bugs de hit-test) */
+.page-competences .constellation .bubble::before,
+.page-complementaires .constellation .bubble___link::before{
+  content:'';
+  position:absolute;
+  inset: -25%;
+  border-radius:50%;
+  z-index: -1;
+  pointer-events: auto;
+}
 
 
 .bubble__front, .bubble__panel{
   position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
-  text-align:center; padding:10%;
+  text-align:center; padding:12%;
   transition:opacity .25s ease;
 }
 .bubble__front b{ font-size:clamp(24px,2.6vw,30px); font-weight:600; line-height:1.2; }
@@ -264,11 +286,12 @@ body.page-complementaires { padding-top: 100px; }
 .bubble:focus-within .bubble__panel{ opacity:1; }
 
 /* Placement en % du conteneur constellation = responsive au zoom */
-.b-top-left{ left: 25%; top: 20%; transform: translate(-50%, -50%); }
-.b-top-right{ left: 75%; top: 20%; transform: translate(-50%, -50%); }
-.b-bottom-left{ left: 25%; top: 72%; transform: translate(-50%, -50%); }
-.b-bottom-right{ left: 75%; top: 72%; transform: translate(-50%, -50%); }
-.b-bottom-mid{ left: 50%; top: 88%; transform: translate(-50%, -50%); }
+/* Les bulles sont écartées comme si le bloc central avait un padding (--center-padding) */
+.b-top-left{ left: calc(25% - var(--center-padding, 0)); top: calc(20% - var(--center-padding, 0)); transform: translate(-50%, -50%); }
+.b-top-right{ left: calc(75% + var(--center-padding, 0)); top: calc(20% - var(--center-padding, 0)); transform: translate(-50%, -50%); }
+.b-bottom-left{ left: calc(25% - var(--center-padding, 0)); top: calc(72% + var(--center-padding, 0)); transform: translate(-50%, -50%); }
+.b-bottom-right{ left: calc(75% + var(--center-padding, 0)); top: calc(72% + var(--center-padding, 0)); transform: translate(-50%, -50%); }
+.b-bottom-mid{ left: 50%; top: calc(88% + var(--center-padding, 0) + var(--center-padding-bottom-mid, 0)); transform: translate(-50%, -50%); }
 
 /* Footer spacing - réduit pour moins d'espace vide */
 body.page-competences .footer,
@@ -431,8 +454,8 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
   .intro { font-size: clamp(16px, 2.2vw, 20px); margin-bottom: clamp(16px, 3vw, 28px); }
   .intro .sub { font-size: clamp(15px, 2vw, 18px); }
   .bubble, .bubble___link {
-    width: clamp(110px, 18%, 170px);
-    height: clamp(110px, 18%, 170px);
+    width: clamp(120px, 20%, 185px);
+    height: clamp(120px, 20%, 185px);
   }
   .center { padding-inline: clamp(16px, 6%, 50px); }
   .center .title { font-size: clamp(20px, 3vw, 28px); }
@@ -451,8 +474,8 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
   .wrap { padding: 12px 10px; }
   .competences-title { font-size: clamp(22px, 6vw, 30px); }
   .bubble, .bubble___link {
-    width: clamp(90px, 20%, 130px);
-    height: clamp(90px, 20%, 130px);
+    width: clamp(100px, 22%, 145px);
+    height: clamp(100px, 22%, 145px);
   }
   .center { padding-inline: 12px; }
   .center .title { font-size: clamp(18px, 4.5vw, 24px); }
@@ -468,8 +491,8 @@ body.page-complementaires .footer { margin-top: clamp(40px, 8vh, 80px); }
 
 @media (max-width: 400px) {
   .bubble, .bubble___link {
-    width: clamp(75px, 22%, 110px);
-    height: clamp(75px, 22%, 110px);
+    width: clamp(85px, 24%, 120px);
+    height: clamp(85px, 24%, 120px);
   }
   .center .logo { width: min(55px, 24%); }
 }
