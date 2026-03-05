@@ -16,8 +16,8 @@
   --gap:160ms; /* décalage entre lettres */
 
   /* Marge visuelle autour de "Missions traditionnelles" : n’écarte que les bulles */
-  --center-padding: 7%;
-  --center-padding-bottom-mid: 4%;
+  --center-padding: 5%;
+  --center-padding-bottom-mid: 6%;
 }
 
 *{box-sizing:border-box}
@@ -288,7 +288,7 @@ body.page-complementaires { padding-top: 100px; }
 /* Placement en % du conteneur constellation = responsive au zoom */
 /* Les bulles sont écartées comme si le bloc central avait un padding (--center-padding) */
 .b-top-left{ left: calc(25% - var(--center-padding, 0)); top: calc(20% - var(--center-padding, 0)); transform: translate(-50%, -50%); }
-.b-top-right{ left: calc(75% + var(--center-padding, 0)); top: calc(20% - var(--center-padding, 0)); transform: translate(-50%, -50%); }
+.b-top-right{ left: calc(72% + var(--center-padding, 0)); top: calc(20% - var(--center-padding, 0)); transform: translate(-50%, -50%); }
 .b-bottom-left{ left: calc(25% - var(--center-padding, 0)); top: calc(72% + var(--center-padding, 0)); transform: translate(-50%, -50%); }
 .b-bottom-right{ left: calc(75% + var(--center-padding, 0)); top: calc(72% + var(--center-padding, 0)); transform: translate(-50%, -50%); }
 .b-bottom-mid{ left: 50%; top: calc(88% + var(--center-padding, 0) + var(--center-padding-bottom-mid, 0)); transform: translate(-50%, -50%); }
